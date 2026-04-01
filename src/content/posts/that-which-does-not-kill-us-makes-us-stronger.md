@@ -1,43 +1,57 @@
 ---
-title: That which does not kill us makes us stronger
-description: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative a...
+title: 游览西湖
+description: 欲把西湖比西子，淡妆浓抹总相宜
 pubDate: 2025-11-14 15:01:35 +0300
 image: '../../images/02.jpg'
-videoEmbed: https://www.youtube.com/embed/gghgYaYeG_M
+videoEmbed: https://www.bilibili.com/video/BV1Bw4m127Gy
 tags: [workflow, hobby, study]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace [Andre Furtado](https://unsplash.com/photos/u_6Zj2d1I5Q) diversity and empowerment.
+## 水底的故乡
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+我站在湖边，望着那一汪碧水，心里头忽然涌上来一股子说不清的滋味。这水太静了，静得像一面巨大的镜子，把天上的云、远处的山、近处的垂柳，都囫囵个儿地吞了进去。可我知道，这水底下的世界，该是另一番光景罢。
 
-### Synergistically evolve
+我的老家在北方乡下，那地界儿只有一条河，旱天的时候，河底的淤泥裂开一道道口子，像老人脸上的皱纹。我第一次见着这么大的湖，心里头竟有些发怵。这水太深了，深得让人觉着底下藏着些说不清道不明的东西。
 
-Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.
+湖边泊着些小船，船身漆成暗红色，船头微微翘起，像是要把天戳个窟窿。船娘戴着斗笠，摇着橹，嘴里哼着软绵绵的小调。我上了船，船身一晃，我的心也跟着晃了一下。船娘回头看了我一眼，笑了笑，露出一口白牙。她的脸被太阳晒得黑红，让我想起老家种地的婶子们。
+
+橹声咿咿呀呀的，像是在说着什么陈年旧事。水面上泛着细细的波纹，一圈一圈地荡开去，把那些楼台亭阁的倒影都揉碎了。我忽然想起小时候听老人说过，水里的影子是另一个世界的魂魄变的。要是这样，这西湖底下，该有多少魂魄在游荡？
+### 三潭印月
+船往湖心去，三潭印月远远地立在水里。三个石塔，像三个沉默的老人，守着什么秘密似的。船娘说，月圆的时候，塔里点上蜡烛，烛光从圆洞里透出来，跟天上的月亮分不清哪个是真的。我听着，心里头忽然有些发酸。这人间的事，真真假假的，谁又分得清呢？就像那些长眠在地下的乡亲，可不也像这水里的月亮，看得见，摸不着。
+
+
 
 :::wide
 ![Kitchen](../../images/02-1.jpg)
 *Photo by [Andre Furtado](https://unsplash.com/photos/u_6Zj2d1I5Q) on [Unsplash](https://unsplash.com/)*
 :::
 
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+远处传来钟声，沉沉的，像是从水底冒出来的。船娘说是净慈寺的钟。我听着那钟声，一下一下的，像是敲在心口上。这钟声该是响了几百年了罢？宋朝的人听见，明朝的人听见，清朝的人也听见。现在轮到我了。可再过几百年，这钟声还在，听的人又该是谁？
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+我忽然想起苏轼的诗句来。这位老兄，当年被贬到这地方，还能写出“欲把西湖比西子”的句子，倒真是想得开。要是我，离了北方那黄土地，到了这温柔乡里，怕是整天对着湖水发呆，连笔都拿不动了。可他倒好，修堤、写诗、喝酒，活得有滋有味的。这大概就是大人物的胸襟罢。
 
-> The longer I live, the more I realize that I am never wrong about anything, and that all the pains I have so humbly taken to verify my notions have only wasted my time!
+船靠了岸，我上了苏堤。堤上的柳树绿得发亮，枝条垂到水里，像是要捞起什么。堤上有许多人，有牵着孩子的，有扶着老人的，有搂着腰的情侣，有独自散步的。大家都慢悠悠的，好像到了这儿，时间就慢了半拍。我走在人群里，忽然觉得自己也是这画里的人，而不是那个从北方乡下来的庄稼汉了。
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+堤上有个老头在放风筝。那风筝是个大蝴蝶，花花绿绿的，飞得老高。老头手里的线一收一放，那蝴蝶就在天上忽高忽低的。我站在旁边看了许久，心里头忽然明白了什么。我们不都像这风筝么？飞得再高再远，那根线还攥在故乡手里。线一断，就不知要落到哪里去了。
 
-Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable [Todd Quackenbush](https://unsplash.com/photos/JJB_K8aCPU4) potentialities.
+又想起小时候听过的故事。老人说，人死了，魂儿要过奈何桥，喝了孟婆汤，前世的记忆就都没了。可总有那么些魂儿，惦着家里的事，不肯喝那汤，就在奈何桥头徘徊。这些魂儿，就变成了水里的影子。我望着西湖的水，心想，这水底下，该有多少不肯忘记的魂儿？
 
-### Podcasting
 
-Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.
+### 傍晚
 
+天渐渐暗了，湖面上起了层薄雾，远处的山变得模糊，像是谁用淡墨在宣纸上抹了一下。华灯初上，灯光映在水里，晃晃悠悠的，像是另一个世界在开夜市。我站在断桥上，看着这景象，心里头忽然空落落的。
+
+这桥叫断桥，可桥并没有断。大概是因为人心里有断不了的念想，才叫这名字罢。许仙和白娘子在这桥上相遇，那是多美的事。可后来呢？一个被压在雷峰塔下，一个在寺里出家。美好开头的事，往往没有好结果。就像老家的庄稼人，春天种下种子，盼着秋天丰收，可有时候一场大水，就什么都没了。
 ![Mountains](../../images/02-2.jpg)
 *Photo by [Devon Hawkins](https://unsplash.com/photos/2IWxOWMVB6w) on [Unsplash](https://unsplash.com/)*
 
-Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
 
-Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications. Quickly drive clicks-and-mortar catalysts for change before vertical architectures.
 
-Credibly reintermediate backend ideas for cross-platform models. Continually reintermediate integrated processes through technically sound intellectual capital. Holistically foster superior methodologies without market-driven best practices.
+我忽然想家了。想那黄土地，想那土坯房，想那河里头的泥鳅，想那院墙根下晒太阳的猫。这西湖再好，到底是别人的地方。我在这湖边走着，看着，听着，可说到底，我是个过客。就像那风筝，线在千里之外的故乡牵着呢。
+
+夜深了，游人渐渐散去，湖面又恢复了平静。月光洒在水面上，银闪闪的，像是铺了一层碎银子。我最后看了一眼西湖，转身要走。忽然听见水声哗啦一响，像是有什么东西从水里探出头来。我回头一看，什么也没有，只有那三潭印月，静静地立在水里，像是在等什么人，等了千百年，还在等。
+
+回到住处，我躺在床上，闭上眼睛，眼前还是那汪碧水。我想，西湖啊西湖，你看了多少人来，多少人走？有多少人像我一样，站在你面前，心里头想着千里之外的故乡？你都不说，只是静静地卧在那里，用你的水，你的柳，你的月，你的钟，抚慰每一个游子的心。
+
+迷迷糊糊要睡着的时候，我仿佛看见祖父站在一片水面上，笑眯眯地看着我。他脚下踩着的，不知道是老家那条河的水，还是西湖的水。我想喊他，可怎么也喊不出声。只能看着他越走越远，最后变成一个影子，沉到水底去了。
+
+窗外，净慈寺的钟声又响了。沉沉的，像是从另一个世界传来的。

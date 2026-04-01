@@ -1,12 +1,12 @@
-# Menca – Personal Blogging Theme for Astro
+# Mobius – Personal Blogging Theme for Astro
 
-Menca is a super fast and clean blogging theme for Astro. One of the main features of this theme is video post support. You can easily add your favorite video from services like Youtube or Vimeo. This theme has a light and dark mode for easy reading. If you want to start a creative personal blog and you create video content this theme is perfect for you.
+Mobius is a super fast and clean blogging theme for Astro. One of the main features of this theme is video post support. You can easily add your favorite video from services like Youtube or Vimeo. This theme has a light and dark mode for easy reading. If you want to start a creative personal blog and you create video content this theme is perfect for you.
 
 * * *
 
 ### Demo
 
-Check the theme in action [Live Demo](https://menca-astro.netlify.app) |
+Check the theme in action [Live Demo](https://mobius-blog.netlify.app) |
 [Anvod Studio](https://anvodstudio.com)
 
 * * *

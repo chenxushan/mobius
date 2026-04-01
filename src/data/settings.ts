@@ -17,12 +17,12 @@ export const settings = {
    * Site
    * ----------------------------- */
   site: {
-    title: 'Menca',
-    description: 'Menca personal blogging theme for Astro.',
+    title: 'Mobius',
+    description: 'Mobius personal blogging theme for Astro.',
     logo: '', // You can add own logo. For example '/images/logo.png'.
     logoDark: '',
     colorScheme: 'auto' as 'auto' | 'light' | 'dark', // You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
-    url: 'https://menca-astro.netlify.app',
+    url: 'https://mobius-blog.netlify.app',
     image: '/images/og-image.jpg',
     language: 'en',
   },
@@ -66,7 +66,7 @@ export const settings = {
    * ----------------------------- */
   hero: {
     enabled: true,
-    title: 'Hey, I’m Camelia Mendes',
+    title: 'Hey, I’m Sunniberg',
     description: 'Designs, talks, and writes about web, ethics, privacy, and dev. I share design tutorials, free resources and inspiration.',
     src: heroImage,
   },
@@ -85,7 +85,7 @@ export const settings = {
    * Author
    * ----------------------------- */
   author: {
-    name: 'Camelia Mendes',
+    name: 'Sunniberg',
     bio: 'Designs, talks, and writes about web, ethics, privacy, and dev. I share design tutorials, free resources and inspiration.',
     src: avatar,
   },
@@ -148,7 +148,7 @@ export const settings = {
    * ----------------------------- */
   contact: {
     formId: 'your_formspree_form_id', // Example 'mbjebqko'
-    description: 'Menca comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want.'
+    description: 'Mobius comes with a built-in contact form, that you can use with Formspree service to handle up to 50 submissions per month for free. You could also easily switch to another contact form service if you want.'
   },
 
   /* -----------------------------
@@ -156,7 +156,7 @@ export const settings = {
    * ----------------------------- */
   comments: {
     enabled: true,
-    disqusIdentifier: 'demo-menca', // Add your shortname for Disqus Comment. For example demo-menca
+    disqusIdentifier: 'demo-mobius', // Add your shortname for Disqus Comment. For example demo-menca
 
   },
 

@@ -8,6 +8,28 @@ import RelatedPosts from '../../components/RelatedPosts.astro';
 import Disqus from '../../components/Disqus.astro';
 import { settings } from '../../data/settings';
 
+function getVideoEmbedUrl(url: string): string {
+  // If already player.bilibili.com, return as-is
+  if (url.includes('player.bilibili.com')) {
+    return url;
+  }
+
+  // Extract BV ID from bilibili.com/video/BVxxxxx
+  const bvMatch = url.match(/bilibili\.com\/video\/(BV\w+)/);
+  if (bvMatch) {
+    return `https://player.bilibili.com/player.html?bvid=${bvMatch[1]}`;
+  }
+
+  // Extract AV ID from bilibili.com/video/avXXXXX
+  const avMatch = url.match(/bilibili\.com\/video\/av(\d+)/);
+  if (avMatch) {
+    return `https://player.bilibili.com/player.html?aid=${avMatch[1]}`;
+  }
+
+  // Return original URL for other video sources (YouTube, Vimeo, etc.)
+  return url;
+}
+
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
   return posts.map((post) => ({
@@ -39,7 +61,7 @@ const shareImage = data.image
               <div class='post-video'>
                 <div class='post-video__wrap'>
                   <iframe
-                    src={data.videoEmbed}
+                    src={getVideoEmbedUrl(data.videoEmbed)}
                     loading='lazy'
                     width='640'
                     height='360'

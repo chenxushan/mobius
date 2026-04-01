@@ -65,6 +65,17 @@ const isActive = (url: string) => {
                 ))
               }
 
+              <li class='nav__item nav__item-icon'>
+                <button
+                  class='nav__link lang-toggle-btn'
+                  id='lang-toggle-btn'
+                  title='切换语言'
+                  onclick="toggleLang()"
+                >
+                  EN
+                </button>
+              </li>
+
               {
                 settings.site.colorScheme === 'auto' && (
                   <li class='nav__item nav__item-icon'>
@@ -102,3 +113,106 @@ const isActive = (url: string) => {
 </header>
 
 <Search />
+
+<script>
+  // Make functions globally accessible
+  function getStoredLang(): string {
+    try {
+      return localStorage.getItem('mobius-lang') || 'zh';
+    } catch {
+      return 'zh';
+    }
+  }
+
+  function setStoredLang(lang: string): void {
+    try {
+      localStorage.setItem('mobius-lang', lang);
+    } catch {
+      // localStorage not available
+    }
+  }
+
+  function updatePageTranslations(lang: string): void {
+    const translations = {
+      en: {
+        'home': 'Home',
+        'about': 'About',
+        'contact': 'Contact',
+        'tags': 'Tags',
+        'elements': 'Elements',
+        'search': 'Search',
+        'menu': 'Menu',
+      },
+      zh: {
+        'home': '首页',
+        'about': '关于',
+        'contact': '联系',
+        'tags': '标签',
+        'elements': '元素',
+        'search': '搜索',
+        'menu': '菜单',
+      }
+    };
+    const t = translations[lang as string];
+    if (!t) return;
+
+    const navLinkMap: Record<string, string> = {
+      '/': t['home'],
+      '/about/': t['about'],
+      '/contact/': t['contact'],
+      '/tags/': t['tags'],
+      '/elements/': t['elements'],
+    };
+
+    document.querySelectorAll('.nav__link').forEach((el) => {
+      const href = (el as HTMLAnchorElement).getAttribute('href');
+      if (!href) return;
+      if (navLinkMap[href]) {
+        el.textContent = navLinkMap[href];
+      }
+    });
+
+    const menuTitle = document.querySelector('.nav__title');
+    if (menuTitle) menuTitle.textContent = t['menu'];
+
+    const langBtn = document.getElementById('lang-toggle-btn');
+    if (langBtn) {
+      langBtn.textContent = lang === 'en' ? '中' : 'EN';
+      langBtn.setAttribute('title', lang === 'en' ? '切换到中文' : 'Switch to English');
+    }
+
+    document.documentElement.lang = lang;
+  }
+
+  function toggleLang(): void {
+    const currentLang = getStoredLang();
+    const newLang = currentLang === 'en' ? 'zh' : 'en';
+    setStoredLang(newLang);
+    updatePageTranslations(newLang);
+  }
+
+  // Expose toggleLang globally
+  (window as any).toggleLang = toggleLang;
+
+  // Initialize
+  function init(): void {
+    const storedLang = getStoredLang();
+    updatePageTranslations(storedLang);
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style>
+  .lang-toggle-btn {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: var(--link-color);
+    color: var(--background-color) !important;
+    cursor: pointer;
+    border: none;
+    font-size: inherit;
+  }
+</style>
