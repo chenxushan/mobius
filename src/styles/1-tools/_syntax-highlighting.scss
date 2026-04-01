@@ -1,0 +1,33 @@
+/* ===============================
+   Syntax Highlighting (Astro)
+   =============================== */
+
+.astro-code {
+  border-radius: 4px !important;
+  border: 1px solid var(--syntax-highlighting-background);
+  background-color: var(--syntax-highlighting-background) !important;
+  transition: background-color 0.3s ease;
+
+  span {
+    color: var(--shiki-light) !important;
+  }
+}
+
+:root[dark] .astro-code {
+  border: 1px solid var(--border-color);
+
+  span {
+    color: var(--shiki-dark) !important;
+  }
+}
+
+pre.astro-code[data-language]::before {
+  content: attr(data-language);
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  color: var(--text-color);
+}

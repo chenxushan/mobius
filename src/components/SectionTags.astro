@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const allPosts = await getCollection('posts', ({ data }) => {
+  return data.draft !== true;
+});
+
+const allUniqueTags = [
+  ...new Set(allPosts.flatMap((post) => post.data.tags || [])),
+].sort();
+
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const finalTags: { name: string; image: any }[] = [];
+const usedImages = new Set();
+
+for (const tagName of allUniqueTags) {
+  if (finalTags.length >= 4) break;
+
+  const matchingPost = sortedPosts.find(
+    (post) =>
+      post.data.tags?.includes(tagName) &&
+      post.data.image &&
+      !usedImages.has(post.data.image.src),
+  );
+
+  if (matchingPost && matchingPost.data.image) {
+    finalTags.push({
+      name: tagName,
+      image: matchingPost.data.image,
+    });
+    usedImages.add(matchingPost.data.image.src);
+  }
+}
+---
+
+<section class='section section-tags'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col col-12'>
+        <div class='section__head'>
+          <h3 class='section__title'>Tags</h3>
+          <a href='/tags/' class='section__link'>See all</a>
+        </div>
+
+        <div class='row'>
+          {
+            finalTags.map((tag) => (
+              <div class='col col-3 col-d-6 col-m-12'>
+                <a href={`/tags#${tag.name}`} class='tag-image'>
+                  <span class='tag-name'>{tag.name}</span>
+                  {tag.image && (
+                    <Image
+                      src={tag.image}
+                      alt={tag.name}
+                      loading='lazy'
+                    />
+                  )}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

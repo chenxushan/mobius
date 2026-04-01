@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+import { settings } from '../data/settings';
+
+interface Props {
+  title: string;
+  url: string;
+  image?: string;
+  description?: string;
+}
+
+const { title, url, image, description } = Astro.props;
+const encodedTitle = encodeURIComponent(title);
+const encodedDescription = encodeURIComponent(description || '');
+const encodedSiteTitle = encodeURIComponent(settings.site.title);
+---
+
+<div class='post__share'>
+  <ul class='share__list list-reset'>
+    <li class='share__item'>
+      <a
+        class='share__link share__twitter'
+        href={`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${url}`}
+        target='_blank'
+        rel='noopener noreferrer nofollow'
+        aria-label='Share on X'
+      >
+        <Icon name='fa7-brands:x-twitter' size={21} />
+      </a>
+    </li>
+
+    <li class='share__item'>
+      <a
+        class='share__link share__facebook'
+        href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+        target='_blank'
+        rel='noopener noreferrer nofollow'
+        aria-label='Share on Facebook'
+      >
+        <Icon name='fa7-brands:square-facebook' size={21} />
+      </a>
+    </li>
+
+    <li class='share__item'>
+    {
+      image && (
+        <a
+          class='share__link share__pinterest'
+          href={`https://pinterest.com/pin/create/button/?url=${url}&media=${image}&description=${encodedTitle}`}
+          target='_blank'
+          rel='noopener noreferrer nofollow'
+          aria-label='Share on Pinterest'
+        >
+          <Icon name='fa7-brands:pinterest' size={21} />
+        </a>
+      )
+    }
+    </li>
+
+    <li class='share__item'>
+      <a
+        class='share__link share__linkedin'
+        href={`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${encodedTitle}&summary=${encodedDescription}&source=${encodedSiteTitle}`}
+        target='_blank'
+        rel='noopener noreferrer nofollow'
+        aria-label='Share on LinkedIn'
+      >
+        <Icon name='fa7-brands:linkedin' size={21} />
+      </a>
+    </li>
+  </ul>
+</div>

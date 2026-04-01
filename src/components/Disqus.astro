@@ -1,0 +1,70 @@
+---
+import { settings } from '../data/settings';
+
+interface Props {
+  identifier: string;
+  url: string;
+}
+
+const { identifier, url } = Astro.props;
+const shortname = settings.comments.disqusIdentifier;
+---
+
+<div class='container'>
+  <div class='row'>
+    <div class='col col-12'>
+      <div class='show-comments'>
+        <button class='button disqus-button' id='show-comments-button'
+          >Show Comments</button
+        >
+      </div>
+
+      <div id='disqus_thread' class='post__comments'>
+        <div id='disqus_empty'></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ shortname, identifier, url }}>
+  function initDisqus() {
+    const showButton = document.getElementById('show-comments-button');
+    const disqusContainer = document.getElementById('disqus_thread');
+    let disqus_loaded = false;
+
+    window.disqus_config = function () {
+      this.page.url = url;
+      this.page.identifier = identifier;
+    };
+
+    if (showButton) {
+      showButton.replaceWith(showButton.cloneNode(true));
+      const newButton = document.getElementById('show-comments-button');
+
+      newButton.addEventListener('click', function () {
+        if (!disqus_loaded) {
+          disqus_loaded = true;
+
+          const d = document,
+            s = d.createElement('script');
+          s.src = 'https://' + shortname + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+
+          newButton.style.display = 'none';
+          if (disqusContainer) {
+            disqusContainer.classList.add('is-open');
+          }
+        }
+      });
+    }
+  }
+
+  initDisqus();
+  document.addEventListener('astro:page-load', initDisqus);
+</script>
+
+<noscript>
+  Please enable JavaScript to view the
+  <a href='https://disqus.com/?ref_noscript'>comments powered by Disqus.</a>
+</noscript>

@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const allPosts = await getCollection('posts', ({ data }) => {
+  return data.draft !== true;
+});
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const tagsWithPosts: Record<string, any[]> = {};
+sortedPosts.forEach((post) => {
+  post.data.tags?.forEach((tag) => {
+    if (!tagsWithPosts[tag]) {
+      tagsWithPosts[tag] = [];
+    }
+    tagsWithPosts[tag].push(post);
+  });
+});
+
+const sortedTagNames = Object.keys(tagsWithPosts).sort((a, b) =>
+  a.localeCompare(b),
+);
+---
+
+<BaseLayout title='Tags'>
+  <section class='tags' id='top'>
+    <div class='tag__head'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col col-12'>
+            <h1 class='tag__title'>Tags</h1>
+
+            <ul class='tag__list list-reset'>
+              {
+                sortedTagNames.map((tag) => (
+                  <li class='tag__item'>
+                    <a href={`#${tag}`} class='tag__link'>
+                      {tag}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {
+      sortedTagNames.map((tag) => (
+        <div class='tags__inner'>
+          <div class='container'>
+            <div class='row'>
+              <div class='col col-12'>
+                <div class='tag__info'>
+                  <div class='tag__info-box'>
+                    <div class='tag__counter'>
+                      <span>{tagsWithPosts[tag].length}</span>
+                      <small>
+                        {tagsWithPosts[tag].length === 1 ? 'Post' : 'Posts'}
+                      </small>
+                    </div>
+                    <h2 class='tag__name' id={tag}>
+                      {tag}
+                    </h2>
+                  </div>
+                  <a class='top__link' href='#top'>
+                    Return to top
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class='container'>
+            <div class='row'>
+              <div class='col col-12'>
+                <div class='row'>
+                  {tagsWithPosts[tag].map((post) => (
+                    <ArticleCard post={post} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>

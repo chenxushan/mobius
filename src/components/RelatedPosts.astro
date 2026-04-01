@@ -1,0 +1,59 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
+
+interface Props {
+  currentTags: string[] | undefined;
+  currentId: string;
+}
+
+const { currentTags, currentId } = Astro.props;
+
+const allPosts = await getCollection('posts');
+
+const relatedPosts = allPosts
+  .filter((post) => {
+    if (post.id === currentId) return false;
+    if (post.data.draft) return false;
+    return post.data.tags?.some((tag: string) => currentTags?.includes(tag));
+  })
+
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const firstTag = currentTags?.[0];
+const hasRelated = relatedPosts.length > 0;
+---
+
+{
+  hasRelated && (
+    <div class='container'>
+      <section class='related-posts animate'>
+        <div class='row'>
+          <div class='col col-12'>
+            <div class='container__inner'>
+              <div class='section__info'>
+                <div class='section__head'>
+                  <h2 class='section__title'>You may also like</h2>
+                  {firstTag && (
+                    <a
+                      href={`/tags#${firstTag}`}
+                      class='section__link related-tag'
+                    >
+                      See all <span> {firstTag}</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+              <div class='row'>
+                {relatedPosts.map((post) => (
+                  <ArticleCard post={post} />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}

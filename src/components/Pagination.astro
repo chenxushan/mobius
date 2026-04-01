@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { prevUrl, nextUrl, currentPage, totalPages } = Astro.props;
+---
+
+{totalPages > 1 && (
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <nav class="pagination animate">
+          <div class="pagination__inner">
+            <div class="pagination__list">
+
+              {prevUrl ? (
+                <a href={prevUrl} class="pagination__prev pagination__item">
+                  <Icon name="fa7-solid:chevron-left" size={15} /> Prev
+                </a>
+              ) : (
+                <span class="pagination__prev pagination__item disabled">
+                  <Icon name="fa7-solid:chevron-left" size={15} /> Prev
+                </span>
+              )}
+
+              <div class="pagination__count pagination__item">
+                Page {currentPage} of {totalPages}
+              </div>
+
+              {nextUrl ? (
+                <a href={nextUrl} class="pagination__next pagination__item">
+                  Next <Icon name="fa7-solid:chevron-right" size={15} />
+                </a>
+              ) : (
+                <span class="pagination__next pagination__item disabled">
+                  Next <Icon name="fa7-solid:chevron-right" size={15} />
+                </span>
+              )}
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+)}

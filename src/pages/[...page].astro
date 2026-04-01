@@ -1,0 +1,49 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import type { Page, GetStaticPathsOptions } from 'astro';
+import { settings } from '../data/settings';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import Pagination from '../components/Pagination.astro';
+import SectionTags from '../components/SectionTags.astro';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const allPosts = await getCollection('posts');
+  const filteredPosts = allPosts
+    .filter((post) => !post.data.draft)
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+  return paginate(filteredPosts, { pageSize: settings.pagination.initial });
+}
+
+interface Props {
+  page: Page<CollectionEntry<'posts'>>;
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout
+  title={settings.site.title}
+  description={settings.site.description}
+  image={settings.site.image}
+>
+  <Hero />
+
+  <div class='container'>
+    <div class='row animate'>
+      {page.data.map((post) => <ArticleCard post={post} />)}
+    </div>
+  </div>
+
+  <Pagination
+    prevUrl={page.url.prev}
+    nextUrl={page.url.next}
+    currentPage={page.currentPage}
+    totalPages={page.lastPage}
+  />
+
+  <SectionTags />
+
+</BaseLayout>

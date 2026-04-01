@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+import { settings } from '../data/settings';
+
+const { hero, newsletter } = settings;
+---
+
+{
+  hero.enabled && (
+    <section class='hero'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col col-12'>
+            <div class='hero__inner'>
+              <div class='hero__left'>
+                {hero.title && <h1 class='hero__title'>{hero.title}</h1>}
+                {hero.description && (
+                  <p class='hero__description'>{hero.description}</p>
+                )}
+                {newsletter.enabled && (
+                  <div class='hero__subscribe'>
+                    <form
+                      class='subscribe-form validate'
+                      action={
+                        newsletter.mailchimpIdentifier
+                          ? `//${newsletter.mailchimpIdentifier}`
+                          : '#'
+                      }
+                      method='POST'
+                      id='membedded-subscribe-form'
+                      name='membedded-subscribe-form'
+                      target='_blank'
+                      novalidate
+                    >
+                      <div class='subscribe-group'>
+                        <div class='subscribe-group-top'>
+                          <label class='screen-reader-text' for='mce-EMAIL'>
+                            Email address
+                          </label>
+                          <input
+                            class='subscribe-email required email'
+                            id='mce-EMAIL'
+                            type='email'
+                            name='EMAIL'
+                            placeholder={newsletter.inputText}
+                            required
+                          />
+                          <button
+                            class='button button--primary subscribe-button'
+                            id='membedded-subscribe'
+                            type='submit'
+                            name='subscribe'
+                          >
+                            {newsletter.buttonText}
+                          </button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                )}
+              </div>
+
+              <div class='hero__right'>
+                <div class='hero__image'>
+                  <Image
+                    src={hero.src}
+                    alt={hero.title}
+                    loading='eager'
+                    fetchpriority='high'
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

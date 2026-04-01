@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((page) => ({
+    params: { id: page.id },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { data } = page;
+const { Content } = await render(page);
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  image={data.image?.src}
+>
+  <div class='page-head'>
+    <div class='container'>
+      <div class='row'>
+        {
+          data.videoEmbed ? (
+            <div class='col col-12'>
+              <div class='page-video'>
+                <div class='page-video__wrap'>
+                  <iframe
+                    src={data.videoEmbed}
+                    loading='lazy'
+                    width='640'
+                    height='360'
+                    frameborder='0'
+                    allowfullscreen
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            data.image && (
+              <div class='col col-12'>
+                <div class='page-image'>
+                  <Image src={data.image} alt={data.title} loading='eager' />
+                </div>
+              </div>
+            )
+          )
+        }
+
+        <div class='col col-12'>
+          <div class='page__info'>
+            <h1 class='page__title'>{data.title}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='container animate'>
+    <article class='page'>
+      <div class='page__content'>
+        <Content />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

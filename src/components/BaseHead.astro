@@ -1,0 +1,93 @@
+---
+import { settings } from '../data/settings';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonicalURL?: URL | string;
+}
+
+const {
+  title = settings.site.title,
+  description = settings.site.description,
+  image = settings.site.image,
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || settings.site.url),
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+---
+
+<meta charset='UTF-8' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+<link rel='icon' type='image/x-icon' href={`${base}favicon.ico`} />
+
+<meta name='generator' content={Astro.generator} />
+<title>{title}</title>
+<meta name='description' content={description} />
+<link rel='canonical' href={canonicalURL} />
+
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property='og:type' content={settings.seo.openGraph.type} />
+<meta property='og:url' content={canonicalURL} />
+<meta property='og:image' content={new URL(image, Astro.site || settings.site.url)} />
+
+<meta name='twitter:card' content={settings.seo.twitter.cardType} />
+<meta name='twitter:site' content={settings.seo.twitter.site} />
+<meta name='twitter:creator' content={settings.seo.twitter.handle} />
+<meta name='twitter:title' content={title} />
+<meta name='twitter:description' content={description} />
+<meta name='twitter:image' content={new URL(image, Astro.site || settings.site.url)} />
+
+<link rel='sitemap' href={`${base}sitemap-index.xml`} />
+<link
+  rel='alternate'
+  type='application/rss+xml'
+  title='RSS'
+  href={`${base}rss.xml`}
+/>
+
+<script is:inline define:vars={{ colorScheme: settings.site.colorScheme }}>
+  const applyTheme = () => {
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem("theme");
+
+    if (colorScheme !== "auto") {
+      html.classList.remove('dark-mode', 'light-mode');
+      html.classList.add(`${colorScheme}-mode`);
+      colorScheme === "dark" ? html.setAttribute("dark", "") : html.removeAttribute("dark");
+      return;
+    }
+
+    const themeToApply = savedTheme ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light");
+
+    html.classList.remove('dark-mode', 'light-mode');
+    html.classList.add(`${themeToApply}-mode`);
+    themeToApply === "dark" ? html.setAttribute("dark", "") : html.removeAttribute("dark");
+  };
+
+  applyTheme();
+  document.addEventListener('astro:after-swap', applyTheme);
+</script>
+
+{settings.analytics.google && (
+  <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${settings.analytics.google}`}></script>
+  <script is:inline define:vars={{ gaId: settings.analytics.google }}>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    const sendConfig = () => {
+      gtag('config', gaId, {
+        page_path: window.location.pathname,
+      });
+    };
+
+    sendConfig();
+
+    document.addEventListener('astro:page-load', sendConfig);
+  </script>
+)}

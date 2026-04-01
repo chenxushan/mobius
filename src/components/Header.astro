@@ -1,0 +1,104 @@
+---
+import Search from './Search.astro';
+import { Icon } from 'astro-icon/components';
+import { settings } from '../data/settings';
+
+const { pathname } = Astro.url;
+const base = import.meta.env.BASE_URL.replace(/\/+$/, '') + '/';
+
+const isActive = (url: string) => {
+  const relativePath = pathname.replace(base, '/') || '/';
+  const currentPath = relativePath.replace(/\/$/, '') || '/';
+  const itemPath = url.replace(/\/$/, '') || '/';
+
+  return currentPath === itemPath ||
+         (itemPath !== '/' && currentPath.startsWith(itemPath + '/'));
+};
+---
+
+<header class='header' id='top'>
+  <div class='container'>
+    <div class='row'>
+      <div class='header__inner col col-12'>
+        <div class='logo'>
+          <a class='logo__link' href={base}>
+            {
+              settings.site.logo || settings.site.logoDark ? (
+                <>
+                  {settings.site.logo && (
+                    <img
+                      class='logo__image'
+                      src={`${base}${settings.site.logo}`.replace(/\/+/g, '/')}
+                      alt={settings.site.title}
+                    />
+                  )}
+                  {settings.site.logoDark && (
+                    <img
+                      class='logo__image__dark'
+                      src={`${base}${settings.site.logoDark}`.replace(/\/+/g, '/')}
+                      alt={settings.site.title}
+                    />
+                  )}
+                </>
+              ) : (
+                settings.site.title
+              )
+            }
+          </a>
+        </div>
+
+        <nav class='main-nav'>
+          <div class='main-nav__box'>
+            <div class='nav__icon-close'>
+              <Icon name='fa7-solid:xmark' size='22' />
+            </div>
+            <div class='nav__title'>Menu</div>
+
+            <ul class='nav__list list-reset'>
+              {
+                settings.navigation.items.map((item) => (
+                  <li class={`nav__item ${isActive(item.url) ? 'is-active' : ''}`}>
+                    <a href={`${base}${item.url}`.replace(/\/+/g, '/')} class='nav__link'>
+                      {item.title}
+                    </a>
+                  </li>
+                ))
+              }
+
+              {
+                settings.site.colorScheme === 'auto' && (
+                  <li class='nav__item nav__item-icon'>
+                    <div class='toggle-theme'>
+                      <div class='toggle-moon' title='Enable dark mode'>
+                        <svg width="15" height="15" viewBox="0 0 1472 1536" xmlns="http://www.w3.org/2000/svg">
+                          <path fill="currentColor" d="M1464 1090q-94 203-283 323.5T768 1536q-157-1-299-62t-244.5-163.5T61 1066T0 768q0-205 97.5-378t267-276.5T738 2q43-2 62 38q17 42-16 72q-176 164-176 400q0 111 43 211.5t115 173t172.5 116T1151 1056q119 0 228-51q41-18 72 13t13 72"/>
+                        </svg>
+                      </div>
+                      <div class='toggle-sun' title='Enable light mode'>
+                        <svg width="15" height="15" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                          <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="4">
+                            <path stroke-linecap="round"
+                              d="m9.15 9.15l2.228 2.228M3 24h3.15m3 14.85l2.228-2.228M38.85 38.85l-2.228-2.228M45 24h-3.15m-3-14.85l-2.228 2.228M24 3v3.15" />
+                            <path fill="currentColor" d="M24 36c6.627 0 12-5.373 12-12s-5.373-12-12-12s-12 5.373-12 12s5.373 12 12 12Z" />
+                            <path stroke-linecap="round" d="M24 45v-3.15" />
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </li>
+                )
+              }
+            </ul>
+          </div>
+        </nav>
+
+        <div class='nav-button'>
+          <Icon name='fa7-solid:bars' size='23' class='nav__icon icon__menu' />
+          <Icon name='fa7-solid:magnifying-glass' size='19' class='nav__icon icon__search' />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<Search />

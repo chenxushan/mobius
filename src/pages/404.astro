@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const allPosts = await getCollection('posts', ({ data }) => {
+  return data.draft !== true;
+});
+
+const recentPosts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title='404: Page Not Found'>
+  <div class='container'>
+    <div class='row'>
+      <div class='col col-12'>
+        <div class='error'>
+          <h2 class='error__title'>404</h2>
+          <p class='error__text'>The requested page could not be found.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='recent-posts animate'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col col-12'>
+          <div class='container__inner'>
+            <div class='section__info'>
+              <div class='section__head'>
+                <h2 class='section__title'>Recent Posts</h2>
+                <a class='section__link' href='/'>Back to homepage</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='container'>
+      <div class='row'>
+        {recentPosts.map((post) => <ArticleCard post={post} />)}
+      </div>
+    </div>
+  </div>
+</BaseLayout>

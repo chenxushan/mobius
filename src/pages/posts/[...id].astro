@@ -1,0 +1,122 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import PostShare from '../../components/PostShare.astro';
+import RelatedPosts from '../../components/RelatedPosts.astro';
+import Disqus from '../../components/Disqus.astro';
+import { settings } from '../../data/settings';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await render(post);
+const postUrl = new URL(Astro.url.pathname, settings.site.url).toString();
+const shareImage = data.image
+  ? new URL(data.image.src, settings.site.url).toString()
+  : undefined;
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  image={data.image?.src}
+>
+  <div class='post-head'>
+    <div class='container'>
+      <div class='row'>
+        {
+          data.videoEmbed ? (
+            <div class='col col-12'>
+              <div class='post-video'>
+                <div class='post-video__wrap'>
+                  <iframe
+                    src={data.videoEmbed}
+                    loading='lazy'
+                    width='640'
+                    height='360'
+                    frameborder='0'
+                    allowfullscreen
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            data.image && (
+              <div class='col col-6 col-d-12'>
+                <div class='post-image'>
+                  <Image src={data.image} alt={data.title} loading='eager' />
+                </div>
+              </div>
+            )
+          )
+        }
+
+        <div class={data.videoEmbed ? 'col col-12' : 'col col-6 col-d-12'}>
+          <div
+            class={`post__info ${data.videoEmbed ? 'post__info-video' : ''}`}
+          >
+            {
+              data.tags && data.tags.length >= 1 && (
+                <div class='post__tags'>
+                  {data.tags.map((tag: string) => (
+                    <a href={`/tags#${tag}`} class='post__tag'>
+                      {tag}
+                    </a>
+                  ))}
+                </div>
+              )
+            }
+
+            <h1 class='post__title'>{data.title}</h1>
+
+            <div class='post__meta'>
+              <a href='/about/' class='post__author-image'>
+                <Image
+                  src={settings.author.src}
+                  alt={settings.author.name}
+                  loading='eager'
+                />
+              </a>
+
+              <div class='post__meta-bottom'>
+                <a class='post__author' href='/about/'>{settings.author.name}</a
+                >
+                <time class='post__date' datetime={data.pubDate.toISOString()}>
+                  <FormattedDate date={data.pubDate} />
+                </time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='container animate'>
+    <article class='post'>
+      <div class='post__content'>
+        <Content />
+      </div>
+
+      <PostShare
+        title={data.title}
+        url={postUrl}
+        image={shareImage}
+        description={data.description}
+      />
+    </article>
+  </div>
+
+  <RelatedPosts currentTags={data.tags} currentId={post.id} />
+
+  {settings.comments.enabled && <Disqus identifier={post.id} url={postUrl} />}
+</BaseLayout>

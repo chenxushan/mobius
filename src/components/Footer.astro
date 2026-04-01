@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import { settings } from '../data/settings';
+import { Icon } from 'astro-icon/components';
+
+const year = new Date().getFullYear();
+---
+
+<footer class='footer'>
+  <div class='footer__inner'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col col-5 col-d-12'>
+          <div class='footer__author'>
+            <div class='footer__author-avatar'>
+              <Image
+                src={settings.author.src}
+                alt={settings.author.name}
+              />
+            </div>
+            <h3 class='footer__author-name'>{settings.author.name}</h3>
+            <p class='footer__author-bio'>{settings.author.bio}</p>
+
+            {
+              settings.socialLinks && (
+                <div class='social'>
+                  <ul class='social__list list-reset'>
+                    {settings.socialLinks.map((social) => (
+                      <li class='social__item'>
+                        <a
+                          class='social__link'
+                          href={social.link}
+                          target='_blank'
+                          rel='noopener'
+                          aria-label={`${social.name} link`}
+                        >
+                          <Icon name={social.icon} size='23' />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )
+            }
+          </div>
+        </div>
+
+        {
+          settings.gallery.enabled && (
+            <div class='col col-6 push-1 col-d-12 push-d-0'>
+              <div class='footer__gallery'>
+                <h3 class='footer__gallery-title'>{settings.gallery.title}</h3>
+                <div class='gallery-footer'>
+                  <div
+                    class='gallery'
+                    style={`grid-template-columns: repeat(${settings.gallery.columns}, auto);`}
+                  >
+                    {settings.gallery.images.map((image) => (
+                      <div class='gallery__image'>
+                        <Image src={image.src} alt={image.alt} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class='footer__info'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col col-12'>
+          <div class='footer__info-box'>
+            <div class='copyright'>
+              {year} &copy; <a href='/'>{settings.site.title}</a>. Crafted &
+              Designed by <a href='https://anvodstudio.com'>Anvod Studio</a>.
+            </div>
+            <div class='top' title='Top' id='back-to-top'>
+              <Icon name='fa7-solid:chevron-up' size='19' />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
