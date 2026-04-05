@@ -3,6 +3,7 @@ title: A journey of a thousand leagues begins beneath one’s feet
 description: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative a...
 pubDate: 2025-11-09 15:01:35 +0300
 image: '../../images/06.jpg'
+videoEmbed: https://www.bilibili.com/video/BV1Hc2iBHEwx
 tags: [travel, story, rest]
 ---
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace [Benjamin Voros](https://unsplash.com/photos/phIFdC6lA4E) diversity and empowerment.

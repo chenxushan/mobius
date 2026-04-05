@@ -1,11 +1,12 @@
 ---
-title: Do what you can, with what you have, where you are
+title: Life shrinks or expands in proportion to one’s courage
 description: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative a...
-pubDate: 2025-11-12 15:01:35 +0300
-image: '../../images/07.jpg'
-tags: [lifestyle, travel, story]
+pubDate: 2025-11-08 15:01:35 +0300
+image: '../../images/03.jpg'
+videoEmbed: https://www.bilibili.com/video/BV1nXWXzcE4B
+tags: [notes, technology]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace [Jared Rice](https://unsplash.com/photos/AhiUnolb7cg) diversity and empowerment.
+Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace [John Matychuk](https://unsplash.com/photos/gUK3lA3K7Yo) diversity and empowerment.
 
 Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
 
@@ -14,8 +15,8 @@ Bring to the table win-win survival strategies to ensure proactive domination. A
 Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.
 
 :::wide
-![House](../../images/07-1.jpg)
-*Photo by [Jared Rice](https://unsplash.com/photos/AhiUnolb7cg) on [Unsplash](https://unsplash.com/)*
+![Space](../../images/03-1.jpg)
+*Photo by [John Matychuk](https://unsplash.com/photos/gUK3lA3K7Yo) on [Unsplash](https://unsplash.com/)*
 :::
 
 Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
@@ -26,14 +27,14 @@ Capitalize on low hanging fruit to identify a ballpark value added activity to b
 
 Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
 
-Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable [Todd Quackenbush](https://unsplash.com/photos/JJB_K8aCPU4) potentialities.
+Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable [Jamie Street](https://unsplash.com/photos/tP7fvu08uEk) potentialities.
 
 ### Podcasting
 
 Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.
 
-![Tree](../../images/07-2.jpg)
-*Photo by [Angela Pham](https://unsplash.com/photos/_uqDYFkrmLM) on [Unsplash](https://unsplash.com/)*
+![Trees](../../images/03-2.jpg)
+*Photo by [Jamie Street](https://unsplash.com/photos/tP7fvu08uEk) on [Unsplash](https://unsplash.com/)*
 
 Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
 

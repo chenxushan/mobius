@@ -3,29 +3,82 @@ title: About
 image: '../../images/01-2.jpg'
 ---
 
-Leverage agile frameworks to provide a robust Hugo Sousa synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+# 关于我，和这个博客
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+写这个自我介绍的时候，我坐在窗前，外面是再普通不过的城市天际线。电脑里放着随机播放的歌单，手边是一杯凉了半截的茶。我想了想，该怎么介绍自己呢？
 
-Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or “organic” sources.
+其实也没什么特别的。我不是什么大V，不是什么意见领袖，就是一个喜欢记录、喜欢思考的普通人。
 
-:::gallery
-  ![Bike](../../images/102.jpg)
-  ![Work](../../images/105.jpg)
-  ![Sea](../../images/107.jpg)
-   *Gallery / [Unsplash](https://unsplash.com/)*
-:::
+## 为什么会有这个博客
 
-Completely synergize resource taxing relationships via premier niche markets. Cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+说实话，这个博客开了又关，关了又开，折腾了好几次。每次都是兴致勃勃地搭好框架，写了一两篇就搁置了。直到最近，我才想明白一个问题——我不是为了给别人看才写的，我是给自己写的。
 
-Objectively innovate empowered manufactured products whereas parallel platforms. Holisticly predominate extensible testing procedures for reliable supply chains. Dramatically engage top-line web services vis-a-vis cutting-edge deliverables.
+在这个信息爆炸的时代，我们每天都被海量的信息轰炸。短视频、热搜、推送通知，一个接一个，像永不停歇的浪潮。我们忙着输入，忙着接收，却很少停下来问自己：我真的需要这些吗？我自己的想法是什么？
 
-### Synergistically evolve
+我渐渐发现，自己变得越来越浮躁。看一篇文章，扫两眼就想划走；看一部电影，忍不住倍速播放；甚至连听一首歌，都只听副歌部分。这种感觉很不好，像是被什么东西推着走，停不下来。
 
-Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications. Quickly drive clicks-and-mortar catalysts for change before vertical architectures.
+所以我想重新开始写博客。不是为了流量，不是为了变现，就是想让自己慢下来，把脑子里那些乱七八糟的想法整理整理，哪怕只是碎碎念，哪怕只有我自己看。
 
-<p><iframe src="https://www.youtube.com/embed/gghgYaYeG_M" width="640" height="360" frameborder="0" allowfullscreen></iframe></p>
+## 关于电影和音乐
 
-Credibly reintermediate backend ideas for cross-platform models. Continually reintermediate integrated processes through technically sound intellectual capital. Holistically foster superior methodologies without market-driven best practices.
+有朋友问我，你平时都干什么？我说，看电影，听歌。他说，就这些？不花钱吗？
 
-Distinctively exploit optimal alignments for intuitive bandwidth. Quickly coordinate e-business applications through revolutionary catalysts for change. Seamlessly underwhelm optimal testing procedures whereas bricks-and-clicks processes.
+我说，这可能是最“廉价”的艺术品了。
+
+真的，我觉得电影和音乐是这个世界上最善良的发明。当我们一无所有的时候，当生活把我们逼到墙角的时候，我们依然可以戴上耳机，听一首喜欢的歌；我们依然可以在深夜，窝在沙发里看一部老电影。
+
+它们不需要你很有钱，不需要你很有地位，它们对所有人一视同仁。
+
+我记得有一段时间特别难熬，每天晚上都是靠看侯孝贤的电影撑过来的。《悲情城市》里那种沉静的、缓慢的节奏，像一剂良药，让我觉得这个世界还是有温度的。还有《海上钢琴师》，1900说“钢琴只有88个键，我却能弹出无限的音乐”，这句话我一直记着。
+
+音乐也是。从大学时期听摇滚，到现在听民谣、听古典、听爵士，口味变了很多，但那种被音乐击中的感觉从来没变过。有时候走在路上，耳机里突然放到一首对的歌，整个人都会轻快起来。
+
+所以在这个博客里，我会经常写电影，写音乐。不是那种专业的影评乐评，就是一些很私人的感受。可能是一部让我哭了的电影，可能是一首陪我走过一段路的歌。
+
+## 关于摄影和文字
+
+我还有个爱好，就是拍照。
+
+说实话，我拍得一般，不是什么大师。但我觉得摄影这件事，重要的不是技术，是你想留住什么。
+
+我有一台老旧的微单，镜头也有点小毛病，自动对焦偶尔失灵。但我还是喜欢带着它到处走。拍街边的老人，拍菜市场的烟火气，拍黄昏时分被拉长的影子，拍下雨天窗户上的水珠。
+
+这些东西看起来很普通，但我觉得它们是有温度的。
+
+摄影对我来说，就是和时光做朋友。我们都知道时间留不住，但照片可以留下一个瞬间。那个瞬间里的人、事、物、景，就像被按下了暂停键，永远停在那里。很多年以后翻出来看，会发现那些当时觉得稀松平常的东西，其实都是很珍贵的。
+
+我特别喜欢拍人像。不是那种精修到毛孔都没有的“照骗”，就是很自然的、有情绪的状态。笑起来眼角的皱纹，发呆时微微放空的眼神，低头吃东西时专注的样子——这些才是真实的生活。
+
+文字也是。摄影用画面记录，文字用词语记录。我喜欢写字，哪怕只是几百字的随笔，写完了会觉得心里踏实。好像那些飘在脑子里的东西，终于落了地。
+
+所以这个博客里，照片和文字会是主要的组成部分。我想把看到的、感受到的，用镜头和文字一起留住。
+
+## 关于思考和输出
+
+我们现在处在一个很特别的时代。
+
+AI来了，ChatGPT、Gemini、Anthropic,DeepSeek,GLM,Qwen,MiniMax,Seed 一个比一个厉害。很多人说，以后很多工作都会被取代。也有人说，人类最后的壁垒就是思考能力。
+
+我觉得这话说得对，但不全对。
+
+思考能力不是天生的壁垒，而是需要刻意练习的习惯。如果我们不再思考，什么都让AI代劳，那这个壁垒也就不存在了。
+
+我最近在尝试所谓的“vibe coding”——就是那种让AI辅助编程的方式，不再死磕每一个细节，而是把握大的方向和感觉。我发现，AI可以帮我省掉很多重复劳动，但它不能替我做决策，不能替我判断什么是好的、什么是对的。这些，还是要靠自己思考。
+
+记录博客，对我来说就是一种思考的练习。当我把想法写出来的时候，我需要把它组织成逻辑通顺的语言，需要面对自己真实的感受，不能糊弄。这个过程本身，就是一种心流体验。
+
+在信息爆炸的时代，输出比输入更需要勇气，也更有价值。输入是被动的，输出是主动的；输入是消费，输出是创造。我不想只做一个消费者。
+
+## 最后
+
+如果你读到这里，谢谢你。可能你是在某个偶然的机会点进了这个博客，可能是我的朋友，也可能是个陌生人。不管怎样，欢迎你。
+
+这个博客不会有什么惊天动地的内容，就是一些日常的记录，一些零碎的思考，一些拍得不太好的照片，一些听得不太专业的音乐推荐。它很普通，但它很真实。
+
+我希望很多年后再回头看这些文字和照片的时候，能想起现在的自己是什么样子，在想什么，喜欢什么，讨厌什么。那应该是一件很有意思的事情。
+
+如果你也有想记录的东西，别犹豫，写下来吧。不用写给谁看，写给自己就好。
+
+就这样吧。我再去泡杯茶，歌单正好放到一首喜欢的歌，窗外的天色也暗下来了。生活就是这样，平平淡淡的，但总有那么一些小瞬间，让人觉得还不错。
+
+谢谢你来过。
