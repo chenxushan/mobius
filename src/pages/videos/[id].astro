@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const videos = await getCollection('videos', ({ data }) => !data.draft);
+  return videos.map((video) => ({
+    params: { id: video.id },
+    props: { video },
+  }));
+}
+
+const { video } = Astro.props;
+
+function getVideoEmbedUrl(url: string): string {
+  if (url.includes('player.bilibili.com')) return url;
+  const bvMatch = url.match(/bilibili\.com\/video\/(BV\w+)/);
+  if (bvMatch) return `https://player.bilibili.com/player.html?bvid=${bvMatch[1]}`;
+  const avMatch = url.match(/bilibili\.com\/video\/av(\d+)/);
+  if (avMatch) return `https://player.bilibili.com/player.html?aid=${avMatch[1]}`;
+  return url;
+}
+
+const embedUrl = getVideoEmbedUrl(video.data.videoUrl);
+---
+
+<BaseLayout title={video.data.title} description={video.data.description}>
+  <div class='container animate'>
+    <div class='video-detail'>
+      <a href='/videos/' class='back-link'>&larr; Back to Videos</a>
+
+      <h1 class='video-title'>{video.data.title}</h1>
+      <p class='video-meta'>{video.data.location} · {video.data.date}</p>
+      <p class='video-desc'>{video.data.description}</p>
+
+      <div class='video-embed'>
+        <iframe
+          src={embedUrl}
+          frameborder='0'
+          allowfullscreen
+          allow='autoplay; encrypted-media'
+        ></iframe>
+      </div>
+
+      <div class='video-source'>
+        <a href={video.data.videoUrl} target='_blank' rel='noopener'>Watch on Bilibili</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .video-detail { padding: 40px 0; max-width: 900px; margin: 0 auto; }
+  .back-link { display: inline-block; margin-bottom: 24px; color: var(--text-muted-color); text-decoration: none; }
+  .back-link:hover { color: var(--text-color); }
+  .video-title { font-size: 2.5rem; margin-bottom: 8px; font-weight: 700; }
+  .video-meta { font-size: 1rem; color: var(--text-muted-color); margin-bottom: 16px; }
+  .video-desc { font-size: 1.1rem; color: var(--text-color); margin-bottom: 32px; line-height: 1.6; }
+
+  .video-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+    margin-bottom: 24px;
+  }
+
+  .video-embed iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  .video-source { text-align: center; }
+  .video-source a { color: var(--text-muted-color); text-decoration: none; }
+  .video-source a:hover { color: var(--link-color); }
+</style>

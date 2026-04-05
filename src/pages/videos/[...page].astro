@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Pagination from '../../components/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const videos = await getCollection('videos', ({ data }) => !data.draft);
+  videos.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  return paginate(videos, { pageSize: 9 });
+}
+
+const { page } = Astro.props;
+
+function getVideoEmbedUrl(url: string): string {
+  if (url.includes('player.bilibili.com')) return url;
+  const bvMatch = url.match(/bilibili\.com\/video\/(BV\w+)/);
+  if (bvMatch) return `https://player.bilibili.com/player.html?bvid=${bvMatch[1]}`;
+  const avMatch = url.match(/bilibili\.com\/video\/av(\d+)/);
+  if (avMatch) return `https://player.bilibili.com/player.html?aid=${avMatch[1]}`;
+  return url;
+}
+---
+
+<BaseLayout title='Videos' description='Video collections'>
+  <div class='container animate'>
+    <div class='videos-page'>
+      <h1 class='page-title'>Videos</h1>
+
+      <div class='videos-grid'>
+        {page.data.map((video) => (
+          <a href={`/videos/${video.id}/`} class='video-card'>
+            <div class='video-card__image'>
+              <img src={video.data.cover || 'https://via.placeholder.com/640x360'} alt={video.data.title} loading='lazy' />
+              <div class='video-card__play'>
+                <svg viewBox='0 0 24 24' fill='currentColor'>
+                  <path d='M8 5v14l11-7z'/>
+                </svg>
+              </div>
+            </div>
+            <div class='video-card__info'>
+              <h3 class='video-card__title'>{video.data.title}</h3>
+              <p class='video-card__meta'>{video.data.location} · {video.data.date}</p>
+              <p class='video-card__desc'>{video.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <Pagination currentPage={page.currentPage} totalPages={page.lastPage} baseUrl='/videos/' />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .videos-page { padding: 40px 0; }
+  .page-title { font-size: 2.5rem; margin-bottom: 40px; font-weight: 700; }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .videos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .videos-grid { grid-template-columns: 1fr; }
+  }
+
+  .video-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--background-alt-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .video-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  .video-card__image {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+
+  .video-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .video-card:hover .video-card__image img { transform: scale(1.05); }
+
+  .video-card__play {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 60px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .video-card__play svg {
+    width: 30px; height: 30px;
+    color: #fff;
+    margin-left: 4px;
+  }
+
+  .video-card__info { padding: 16px; }
+  .video-card__title { font-size: 1.1rem; margin-bottom: 4px; font-weight: 600; }
+  .video-card__meta { font-size: 0.85rem; color: var(--text-muted-color); margin-bottom: 8px; }
+  .video-card__desc { font-size: 0.9rem; color: var(--text-color); line-height: 1.5; }
+</style>

@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Pagination from '../../components/Pagination.astro';
+
+export async function getStaticPaths({ paginate }) {
+  const albums = await getCollection('photoAlbums', ({ data }) => !data.draft);
+  albums.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+  return paginate(albums, { pageSize: 9 });
+}
+
+const { page } = Astro.props;
+---
+
+<BaseLayout title='Photos' description='Photo albums'>
+  <div class='container animate'>
+    <div class='photos-page'>
+      <h1 class='page-title'>Photos</h1>
+
+      <div class='albums-grid'>
+        {page.data.map((album) => (
+          <a href={`/photos/${album.id}/`} class='album-card'>
+            <div class='album-card__image'>
+              <img src={album.data.cover || album.data.images?.[0]?.src} alt={album.data.title} loading='lazy' />
+              <div class='album-card__overlay'>
+                <span class='album-card__count'>{album.data.images?.length || 0} photos</span>
+              </div>
+            </div>
+            <div class='album-card__info'>
+              <h3 class='album-card__title'>{album.data.title}</h3>
+              <p class='album-card__meta'>{album.data.location} · {album.data.date}</p>
+              <p class='album-card__desc'>{album.data.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <Pagination currentPage={page.currentPage} totalPages={page.lastPage} baseUrl='/photos/' />
+    </div>
+  </div>
+
+  <div id='lightbox' class='lightbox' hidden>
+    <button class='lightbox__close' aria-label='Close'>&times;</button>
+    <button class='lightbox__prev' aria-label='Previous'>&#10094;</button>
+    <button class='lightbox__next' aria-label='Next'>&#10095;</button>
+    <img class='lightbox__img' src='' alt='' />
+  </div>
+</BaseLayout>
+
+<script define:vars={{ currentPage: page.currentPage }}>
+  // For now, lightbox is handled in detail pages
+  // Add click handlers for albums
+  document.querySelectorAll('.album-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // Let navigation happen naturally
+    });
+  });
+</script>
+
+<style>
+  .photos-page { padding: 40px 0; }
+  .page-title { font-size: 2.5rem; margin-bottom: 40px; font-weight: 700; }
+
+  .albums-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 768px) {
+    .albums-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .albums-grid { grid-template-columns: 1fr; }
+  }
+
+  .album-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--background-alt-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .album-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  .album-card__image {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+  }
+
+  .album-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .album-card:hover .album-card__image img { transform: scale(1.05); }
+
+  .album-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .album-card:hover .album-card__overlay { opacity: 1; }
+
+  .album-card__count {
+    color: #fff;
+    font-weight: 600;
+    padding: 8px 16px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 20px;
+  }
+
+  .album-card__info { padding: 16px; }
+  .album-card__title { font-size: 1.1rem; margin-bottom: 4px; font-weight: 600; }
+  .album-card__meta { font-size: 0.85rem; color: var(--text-muted-color); margin-bottom: 8px; }
+  .album-card__desc { font-size: 0.9rem; color: var(--text-color); line-height: 1.5; }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox__img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
+  .lightbox__close {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none; border: none;
+    color: #fff; font-size: 40px;
+    cursor: pointer;
+    width: 50px; height: 50px;
+  }
+  .lightbox__prev, .lightbox__next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.1); border: none;
+    color: #fff; font-size: 30px;
+    cursor: pointer; width: 60px; height: 60px;
+  }
+  .lightbox__prev { left: 20px; }
+  .lightbox__next { right: 20px; }
+</style>

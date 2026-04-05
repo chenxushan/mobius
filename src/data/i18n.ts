@@ -6,6 +6,8 @@ export const translations = {
     contact: 'Contact',
     tags: 'Tags',
     elements: 'Elements',
+    photos: 'Photos',
+    videos: 'Videos',
 
     // Search
     search: 'Search',
@@ -50,6 +52,8 @@ export const translations = {
     contact: '联系',
     tags: '标签',
     elements: '元素',
+    photos: '照片',
+    videos: '视频',
 
     // Search
     search: '搜索',

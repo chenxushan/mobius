@@ -3,6 +3,9 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 
+const lang = Astro.currentLocale || 'en';
+const tagsLabel = lang === 'zh' ? '标签' : 'Tags';
+
 const allPosts = await getCollection('posts', ({ data }) => {
   return data.draft !== true;
 });
@@ -25,13 +28,13 @@ const sortedTagNames = Object.keys(tagsWithPosts).sort((a, b) =>
 );
 ---
 
-<BaseLayout title='Tags'>
+<BaseLayout title={tagsLabel}>
   <section class='tags' id='top'>
     <div class='tag__head'>
       <div class='container'>
         <div class='row'>
           <div class='col col-12'>
-            <h1 class='tag__title'>Tags</h1>
+            <h1 class='tag__title'>{tagsLabel}</h1>
 
             <ul class='tag__list list-reset'>
               {

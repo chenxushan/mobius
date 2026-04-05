@@ -140,6 +140,8 @@ const isActive = (url: string) => {
         'contact': 'Contact',
         'tags': 'Tags',
         'elements': 'Elements',
+        'photos': 'Photos',
+        'videos': 'Videos',
         'search': 'Search',
         'menu': 'Menu',
       },
@@ -149,11 +151,13 @@ const isActive = (url: string) => {
         'contact': '联系',
         'tags': '标签',
         'elements': '元素',
+        'photos': '照片',
+        'videos': '视频',
         'search': '搜索',
         'menu': '菜单',
       }
     };
-    const t = translations[lang as string];
+    const t = translations[lang as keyof typeof translations];
     if (!t) return;
 
     const navLinkMap: Record<string, string> = {
@@ -162,6 +166,8 @@ const isActive = (url: string) => {
       '/contact/': t['contact'],
       '/tags/': t['tags'],
       '/elements/': t['elements'],
+      '/photos/': t['photos'],
+      '/videos/': t['videos'],
     };
 
     document.querySelectorAll('.nav__link').forEach((el) => {

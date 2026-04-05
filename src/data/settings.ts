@@ -22,7 +22,7 @@ export const settings = {
     logo: '', // You can add own logo. For example '/images/logo.png'.
     logoDark: '',
     colorScheme: 'auto' as 'auto' | 'light' | 'dark', // You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
-    url: 'https://mobius-blog.netlify.app',
+    url: 'https://mobius.cool',
     image: '/images/og-image.jpg',
     language: 'en',
   },
@@ -48,8 +48,8 @@ export const settings = {
     items: [
       { title: 'Home', url: '/' },
       { title: 'About', url: '/about/' },
-      { title: 'Contact', url: '/contact/' },
-      { title: 'Elements', url: '/elements/' },
+      { title: 'Photos', url: '/photos/' },
+      { title: 'Videos', url: '/videos/' },
     ],
   },
 
@@ -67,7 +67,7 @@ export const settings = {
   hero: {
     enabled: true,
     title: 'Hey, I’m Sunniberg',
-    description: 'Designs, talks, and writes about web, ethics, privacy, and dev. I share design tutorials, free resources and inspiration.',
+    description: '记录生活,影像,思考,阅读,拥抱AI,vibe coding. 我喜欢拿了橘子跑了,因为knowledge is power!',
     src: heroImage,
   },
 
@@ -75,7 +75,7 @@ export const settings = {
    * Newsletter
    * ----------------------------- */
   newsletter: {
-    enabled: true,
+    enabled: false,
     mailchimpIdentifier: 'gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&id=0e31fd7793',
     inputText: 'Subscribe here',
     buttonText: 'Get a new tip',
@@ -86,7 +86,7 @@ export const settings = {
    * ----------------------------- */
   author: {
     name: 'Sunniberg',
-    bio: 'Designs, talks, and writes about web, ethics, privacy, and dev. I share design tutorials, free resources and inspiration.',
+    bio: '记录生活,影像,思考,阅读,拥抱AI,vibe coding. 我喜欢拿了橘子跑了,因为knowledge is power!',
     src: avatar,
   },
 
@@ -97,23 +97,23 @@ export const settings = {
   // Other icons can be found at https://icon-sets.iconify.design/fa7-brands/
   socialLinks: [
     {
-      icon: 'fa7-brands:x-twitter',
-      name: 'X',
+      icon: 'fa7-brands:weixin',
+      name: 'weixin',
       link: 'https://x.com/',
     },
     {
-      icon: 'fa7-brands:facebook-square',
-      name: 'Facebook',
+      icon: 'fa7-brands:github-square',
+      name: 'github-square',
       link: 'https://facebook.com',
     },
     {
-      icon: 'fa7-brands:instagram',
-      name: 'Instagram',
-      link: 'https://instagram.com',
+      icon: 'fa7-brands:bilibili',
+      name: 'Bilibili',
+      link: 'https://space.bilibili.com/33503442?spm_id_from=333.33.0.0',
     },
     {
-      icon: 'fa7-brands:pinterest',
-      name: 'Pinterest',
+      icon: 'fa7-brands:zhihu',
+      name: 'zhihu',
       link: 'https://pinterest.com',
     },
     {

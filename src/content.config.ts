@@ -26,4 +26,33 @@ const pages = defineCollection({
   })
 });
 
-export const collections = { posts, pages };
+const photoAlbums = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/photos' }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    location: z.string(),
+    date: z.string(),
+    cover: z.string().optional(),
+    images: z.array(z.object({
+      src: z.string(),
+      alt: z.string(),
+    })).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+const videos = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/videos' }),
+  schema: ({ image }) => z.object({
+    title: z.string(),
+    description: z.string(),
+    location: z.string(),
+    date: z.string(),
+    cover: z.string().optional(),
+    videoUrl: z.string(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { posts, pages, photoAlbums, videos };
