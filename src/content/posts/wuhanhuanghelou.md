@@ -1,43 +1,186 @@
 ---
-title: Life shrinks or expands in proportion to one’s courage
-description: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative a...
-pubDate: 2025-11-08 15:01:35 +0300
+title: 武汉黄鹤楼
+description: 大江大湖里的一场灯火旧梦
+pubDate: 2025-10-02 15:01:35 +0300
 image: '../../images/03.jpg'
 videoEmbed: https://www.bilibili.com/video/BV1nXWXzcE4B
-tags: [notes, technology]
+tags: [travel, rest]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace [John Matychuk](https://unsplash.com/photos/gUK3lA3K7Yo) diversity and empowerment.
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+# 武汉游记：大江大湖里的一场灯火旧梦
 
-### Synergistically evolve
+## 一、出发
 
-Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.
+今年国庆，我去了武汉。
 
-:::wide
-![Space](../../images/03-1.jpg)
-*Photo by [John Matychuk](https://unsplash.com/photos/gUK3lA3K7Yo) on [Unsplash](https://unsplash.com/)*
-:::
+说实话，选这个地方多少有些临时起意。朋友们问我要不要去川西，要不要去云南，我摇摇头，说想找个有大江大河的城市走走。他们说那去重庆，我说不对，重庆是山城，山多水少；他们又说去南京，我说也不对，南京的江是平的，武汉的江是活的。
 
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+这话说得有点玄，但我心里清楚，我想去看的是那种有气魄的水——不是江南小桥流水那种婉约，而是大江东去浪淘尽那种苍茫。
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+订票的时候才发现，今年的武汉格外热闹。各大旅游平台的数据显示，国庆期间武汉是国内十大热门旅游目的地之一，在线预订人次同比增长了百分之三十多。我心里咯噔一下，完了，又要去人挤人了。但票已经订了，也就硬着头皮上了。
 
-> The longer I live, the more I realize that I am never wrong about anything, and that all the pains I have so humbly taken to verify my notions have only wasted my time!
+高铁到武汉站的时候是下午两点。出站的那一刻，热浪扑面而来，九月底的武汉依然闷热，空气中弥漫着一股熟悉的味道——说不清是长江的水汽，还是路边热干面摊的芝麻酱香。
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+我背着一个包，挤上地铁，往市区方向走。
 
-Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable [Jamie Street](https://unsplash.com/photos/tP7fvu08uEk) potentialities.
+## 二、初见·户部巷的热闹
 
-### Podcasting
+安顿好住处，已经是下午四点多。我住的酒店在司门口附近，离黄鹤楼不远。放下行李，我决定先去户部巷转转，顺便吃点东西。
 
-Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.
+户部巷比我想象的要热闹得多。
 
-![Trees](../../images/03-2.jpg)
-*Photo by [Jamie Street](https://unsplash.com/photos/tP7fvu08uEk) on [Unsplash](https://unsplash.com/)*
+巷子不宽，两边挤满了小吃摊，空气里混杂着烤鱿鱼的焦香、臭豆腐的“臭味”和糖炒栗子的甜香。人群摩肩接踵，我几乎是被人流推着往前走。三鲜豆皮、热干面、糊汤粉、糯米包油条……每家店门口都排着长队，游客们举着手机拍照，摊主们手脚麻利地忙活着，额头上的汗珠在灯光下闪闪发亮。
 
-Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+我在一家卖三鲜豆皮的店前排了十来分钟的队，买了一份，站在路边吃。豆皮是糯米做的，外皮煎得金黄酥脆，里面包着香菇、笋丁和肉末，一口咬下去，外酥里糯，满嘴香。旁边一个大哥也是一个人，端着一碗热干面，蹲在马路牙子上吃得呼噜呼噜响，抬头看见我，咧嘴一笑：“好吃吧？”
 
-Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications. Quickly drive clicks-and-mortar catalysts for change before vertical architectures.
+我点点头，他也点点头，低头继续吃。
 
-Credibly reintermediate backend ideas for cross-platform models. Continually reintermediate integrated processes through technically sound intellectual capital. Holistically foster superior methodologies without market-driven best practices.
+这就是武汉——热气腾腾，豪爽直接，不跟你玩虚的。
+
+## 三、登楼·黄鹤一去不复返
+
+从户部巷出来，天色已经暗了。我沿着民主路往黄鹤楼方向走，远远地就看见了那座楼——灯火通明，金碧辉煌，在夜色中像一座浮在空中的仙宫。
+
+黄鹤楼的门票是70块钱。我犹豫了一下，还是买了。来都来了，总要上去看看的。
+
+检票入园，沿着台阶往上走。夜晚的黄鹤楼比白天多了几分神秘，灯光勾勒出楼阁的轮廓，飞檐翘角在夜色中格外醒目。我本来想坐电梯上去，但看到电梯口排着长队，便改了主意，一步一步爬楼梯。
+
+五层楼，说高不高，说矮不矮。爬到第三层的时候，我已经有点喘了，在转角处停下来歇了歇。旁边一个老爷子也在歇脚，穿着一件洗得发白的格子衬衫，手里拿着一个老式相机。
+
+“第一次来？”他问我。
+
+“嗯，第一次。”
+
+“我这是第三次了。”他笑了笑，“年轻的时候来一次，退休的时候来一次，今年八十了，再来一次。”
+
+我不知道该说什么，只是点了点头。
+
+“这楼啊，每次来看都不一样。”他指了指窗外的江面，“年轻的时候看，觉得气派；老了再看，觉得它老了，我也老了。”
+
+说完，他拍了拍栏杆，继续往上爬。
+
+我跟在他后面，心里想着他的话。
+
+登顶的时候，风很大。
+
+凭栏远眺，武汉三镇的夜景尽收眼底。长江大桥像一条发光的长龙横卧江面，桥上的车流如织，灯光在江面上拖出长长的倒影。远处是汉口的高楼群，霓虹闪烁，灯火璀璨。龟山电视塔立在江对岸，像一把利剑刺向夜空。
+
+我站在栏杆前，看了很久。
+
+崔颢当年写“晴川历历汉阳树，芳草萋萋鹦鹉洲”的时候，看到的应该是白天的景色。如果是夜晚，他大概会写出另一番气象。李白就更不用说了，他那句“黄鹤楼中吹玉笛，江城五月落梅花”，写的是五月，不是十月，但我总觉得，这十个字里的意境，放在十月也是通的。
+
+只是现在没有玉笛了，只有楼下小贩的叫卖声和游客的喧哗声。
+
+我在楼上待了快一个小时，直到广播开始催人离场，才恋恋不舍地往下走。
+
+## 四、飞越·上帝视角下的江城
+
+从黄鹤楼出来，我沿着武昌江滩往大桥方向走。
+
+路上找了一个相对开阔的地方，升起无人机。
+
+当画面传回来的那一刻，我再次屏住了呼吸。
+
+从空中俯瞰，长江大桥横跨江面，桥身灯光随音乐节奏变换色彩，宛如一条游动的巨龙。桥上的车流如织，尾灯拉出红色的光轨，与江面上的游船灯光交相辉映。黄鹤楼在镜头中越来越远，金碧辉煌的楼体与周围暗色的山体形成鲜明对比，像一颗镶嵌在蛇山上的明珠。
+
+我让无人机沿着江面飞了一段。长江在夜色中宽阔得不像话，两岸的高楼倒映在水中，随着波浪微微晃动，整个世界都像是流动的。远处的二桥、鹦鹉洲大桥也亮着灯，一座比一座壮观。武汉的桥真多啊，我数了数，光是我能看到的就有三座。
+
+收回无人机的时候，我的手有点抖。
+
+不是因为冷，而是因为激动。这种从空中俯瞰一座城市的体验，总是让我觉得既渺小又宏大——渺小的是自己，宏大的是这座城市和它承载的历史。
+
+## 五、漫步·长江大桥上的夜风
+
+拍完航拍，我决定上桥走走。
+
+从武昌桥头上桥，沿着人行道往汉阳方向走。桥面很宽，车流从身边呼啸而过，脚下的铁轨偶尔传来火车经过的轰鸣声。桥上的风很大，吹得人衣角翻飞，头发乱成一团。
+
+我在桥上慢慢走着，不时停下来看看江面。
+
+一艘游船从桥下驶过，船上的灯光倒映在江面上，拖出一道长长的光痕。远处传来汽笛声，低沉悠长，像是在跟这座城市说晚安。
+
+走到桥中间的时候，我停下来，趴在栏杆上往下看。江水在脚下奔涌，黑黢黢的，看不见底。我想起毛主席的那句“一桥飞架南北，天堑变通途”，这座桥建成于1957年，到现在快七十年了，依然坚固如初。
+
+六十七年前，建设者们在这里挥汗如雨；六十七年后，我站在他们修建的桥上，看他们不曾看过的夜景。
+
+这大概就是时间的力量吧。
+
+## 六、夜归·户部巷的烟火气
+
+从桥上下来，已经快十一点了。
+
+我又拐进了户部巷。这时候的巷子比傍晚安静了许多，大部分摊位已经收了，只有零星几家还亮着灯。我在一家还没收摊的店前停下来，要了一碗糊汤粉。
+
+老板娘是个五十多岁的大姐，一边煮粉一边跟我聊天。
+
+“一个人来玩啊？”
+
+“嗯，一个人。”
+
+“一个人也好，自在。”她把煮好的粉端给我，又加了一勺虾皮，“尝尝，正宗的武汉糊汤粉。”
+
+我端着碗，坐在路边的小板凳上吃。粉很细，汤很浓，胡椒的辣味在舌尖炸开，暖意从胃里蔓延到全身。
+
+吃完粉，我沿着司门口天桥往回走。天桥上还有几个游客在拍照，镜头对着远处的黄鹤楼。楼已经熄了灯，只剩下轮廓在夜色中若隐若现。
+
+我停下来，也拍了一张。
+
+照片很暗，黄鹤楼只有一个模糊的影子，但我觉得，这张比那些灯火通明的照片更有味道。
+
+## 七、给后来人的一些实在话
+
+回来之后，有朋友问我武汉怎么样。我总结了几点，希望能帮到想去的人：
+
+**1. 关于时间：下午+晚上是最佳组合。**
+
+建议下午四五点到司门口，先去户部巷吃点东西，然后在天黑前登黄鹤楼（这样可以看到白天和夜晚两种景色），看完夜景后去长江大桥上走走，最后可以坐游船夜游长江。
+
+**2. 关于黄鹤楼：值得上去一次，但别期望太高。**
+
+黄鹤楼是重建的，这一点要心里有数。但它的意义不在于“古”，而在于“名”——千百年来，无数文人墨客在这里留下诗篇，你站上去，看的不是楼，是历史。门票70元，晚上有灯光秀，值得一看。
+
+**3. 关于长江大桥：一定要上去走一走。**
+
+不要只开车经过，要亲自走上去。从武昌桥头上桥，走到桥中间，趴在栏杆上看江面，那种感觉是在车里感受不到的。晚上走最舒服，风大，凉快，视野开阔。
+
+**4. 关于航拍：美是真美，但要小心信号。**
+
+黄鹤楼和长江大桥是航拍的绝佳题材。但晚上人多，信号干扰强，建议在司门口天桥或者武昌江滩开阔地带起飞。注意遵守禁飞规定，安全第一。
+
+**5. 关于美食：别只盯着户部巷。**
+
+户部巷名气大，但商业气息重，本地人其实不太去。想吃地道武汉味，可以去粮道街、山海关路、大成路这些地方，热干面、三鲜豆皮、糊汤粉、糯米包油条、莲藕排骨汤，都值得一试。
+
+**6. 其他值得去的地方：**
+
+- **湖北省博物馆**：越王勾践剑、曾侯乙编钟，必看。需要提前预约。
+- **东湖**：比杭州西湖还大，可以骑车、划船、坐氦气球。
+- **黎黄陂路**：汉口的老租界区，老房子改成的咖啡馆和小店，适合慢慢逛。
+- **知音号**：长江上的实景漂移剧场，沉浸式体验民国风情。
+
+**7. 注意事项：**
+
+- 国庆期间人流量大，热门景点建议提前预约。
+- 武汉秋天依然闷热，穿轻便透气的衣服。
+- 长江大桥上风大，晚上去记得带件薄外套。
+- 户部巷、粮道街这些美食街人多，注意保管好随身物品。
+
+## 八、结语
+
+从武汉回来已经好几天了。
+
+现在回想起来，最让我念念不忘的不是黄鹤楼的灯火，也不是长江大桥的壮阔，而是那个在户部巷蹲在马路牙子上吃热干面的大哥，是那个八十岁还要爬黄鹤楼的老爷子，是那个深夜还开着店的糊汤粉老板娘。
+
+这些人，才是武汉的灵魂。
+
+这座城市经历过太多——九八年的洪水，二零年的疫情，但它始终热气腾腾地活着，像长江水一样奔流不息。
+
+我觉得我还会再来的。
+
+不是为了黄鹤楼，不是为了长江大桥，而是为了那股子劲儿——那股子“不管遇到什么，日子总要过下去”的劲儿。
+
+就像那碗糊汤粉，热乎乎的，辣乎乎的，吃下去，整个人都暖了。
+
+---
+
+*写于2025年10月中旬，回忆国庆那场灯火璀璨的江城之旅。*

@@ -1,43 +1,125 @@
 ---
-title: A journey of a thousand leagues begins beneath one’s feet
-description: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative a...
+title: 苏州天平山枫叶
+description: 四百年前的枫，落在了我的肩上
 pubDate: 2025-11-09 15:01:35 +0300
 image: '../../images/06.jpg'
 videoEmbed: https://www.bilibili.com/video/BV1Hc2iBHEwx
 tags: [travel, story, rest]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace [Benjamin Voros](https://unsplash.com/photos/phIFdC6lA4E) diversity and empowerment.
+# 天平山记：四百年前的枫，落在了我的肩上
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+## 一、出发
 
-### Synergistically evolve
+去年十一月，我去了苏州天平山。
 
-Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.
+说来也巧，去之前我并不知道这座山和范仲淹有什么关系。在我的印象里，苏州是园林、是小桥流水、是评弹里的吴侬软语，和“先天下之忧而忧”那种沉甸甸的家国情怀，似乎隔了一层。
 
-:::wide
-![Space](../../images/06-1.jpg)
-*Photo by [Benjamin Voros](https://unsplash.com/photos/phIFdC6lA4E) on [Unsplash](https://unsplash.com/)*
-:::
+但天平山不一样。
 
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+它藏在苏州城西，不高，只有两百米出头，放在以山著称的地方，实在算不上什么。可就是这座不算高的山，从宋代开始，就一直立在苏州人的心里。
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+车子停在山脚的停车场，我背着一个包，沿着石板路往里走。还没到检票口，远远地就看见了那一片红。
 
-> The longer I live, the more I realize that I am never wrong about anything, and that all the pains I have so humbly taken to verify my notions have only wasted my time!
+不是那种稀稀拉拉的几棵，而是漫山遍野、铺天盖地的红。我站在那里愣了几秒，然后下意识地加快了脚步。
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+## 二、古枫·四百年的等待
 
-Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable [Oleg Chursin](https://unsplash.com/photos/vaPoJZB9Mzg) potentialities.
+走进景区，最先迎接我的不是枫叶，而是一座石牌坊，上面刻着四个字——“先忧后乐”。
 
-### Podcasting
+这是范仲淹留给后人的话，刻在这里，像是这座山的灵魂。
 
-Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.
+绕过牌坊，眼前豁然开朗。一大片古枫林铺展开来，树干粗得要两人合抱，枝丫向天空伸展，像一把把撑开的巨伞。阳光透过层层叠叠的叶子洒下来，地上光影斑驳，红的、橙的、黄的、绿的，交织在一起，像打翻了调色盘。
 
-![Mountains](../../images/06-2.jpg)
-*Photo by [Oleg Chursin](https://unsplash.com/photos/vaPoJZB9Mzg) on [Unsplash](https://unsplash.com/)*
+我站在一棵古枫下，仰头看。树很高，脖子仰酸了才看到顶。
 
-Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+旁边有个老爷子也在看，见我仰着头，笑了一声：“这树啊，四百多年了。”
 
-Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications. Quickly drive clicks-and-mortar catalysts for change before vertical architectures.
+四百多年。我心里默念了一下这个数字，突然觉得有点恍惚。
 
-Credibly reintermediate backend ideas for cross-platform models. Continually reintermediate integrated processes through technically sound intellectual capital. Holistically foster superior methodologies without market-driven best practices.
+明万历年间，范仲淹的第十七世孙范允临从福建辞官回乡，带了三百八十株枫香树苗，种在了天平山前。那时候他大概也不会想到，四百年后，会有一个人站在他种下的树下，仰着头，说不出话来。
+
+这些树见过太多东西了。
+
+它们见过清朝的官员来谒范公祠，见过乾隆皇帝御笔题写“高义园”，见过太平天国的战火把山庄烧毁，见过抗战时期日寇的铁蹄践踏这片土地，也见过1954年天平山作为公共景区正式开放时，第一批游客的欢声笑语。
+
+四百年风雨，它们都在这里，一年一年地红着。
+
+## 三、范公·山水的魂
+
+看完古枫，我去了范文正公忠烈庙。
+
+这是一座三进的院子，不大，但很安静。正殿里塑着范仲淹的坐像，面庞清癯，目光沉静，像是在看着什么很远的地方。
+
+我在像前站了一会儿。
+
+说实话，范仲淹的生平我是知道的——《岳阳楼记》里那句“先天下之忧而忧，后天下之乐而乐”，从小就会背。但站在天平山，站在他长眠的地方，再想起这句话，感觉完全不同了。
+
+他两岁丧父，随母改嫁，少年时在寺庙里读书，划粥断齑，日子过得苦得要命。后来考中进士，当了官，做了宰相级别的大臣，主持“庆历新政”，想改革弊政，结果失败了，被贬出京城。再后来，他回到苏州，治理水患，创建州学，把皇帝赐给他的宅子捐出来办学。
+
+他这一辈子，好像一直在“忧”——忧国家，忧百姓，忧天下。可奇怪的是，站在他的像前，我看到的不是一个愁眉苦脸的人，而是一个平静、笃定的人。
+
+也许，当一个人把“忧天下”当作本分，那些个人的得失荣辱，就不算什么了。
+
+从忠烈庙出来，我在院子里看到一块刻石，上面就是那句“先天下之忧而忧，后天下之乐而乐”。字是金色的，在午后的阳光下有点晃眼。
+
+我拍了张照片，没有多停留。
+
+有些东西，拍不下来的。
+
+## 四、五彩·枫叶如丹
+
+天平山的枫叶，和别处不一样。
+
+别的地方的枫叶，红就是红，黄就是黄。但天平山的枫叶是“五彩”的——同一棵树上，有青、黄、橙、红、紫，层层叠叠，像一幅没画完的水彩画。
+
+当地人说，这叫“五彩枫”。
+
+我沿着山道往上走，路过十景塘、白云池、御碑亭，每一处都是红的、黄的、橙的。池水像一面镜子，把岸边的枫树和蓝天白云一起倒映在里面，风一吹，水面皱起来，倒影碎成一片一片，又慢慢聚拢。
+
+我在白云池边坐了很久。
+
+池边有一棵很大的枫树，枝条伸到水面上，叶子红得发紫。树下有几个阿姨在拍照，一个阿姨举着丝巾，另一个阿姨蹲着找角度，嘴里喊着：“再往左一点，对对对，笑一个！”
+
+她们笑得很开心。
+
+我想，这大概就是范仲淹想看到的样子吧。太平年月，百姓安居乐业，有闲情逸致来山里看看红叶，拍拍照，发发朋友圈。这样的日子，在范仲淹那个年代，是奢望。
+
+## 五、归途
+
+太阳开始西斜的时候，我往山下走。
+
+路过御碑亭的时候，夕阳正好打在亭子边的古枫上，枫叶被镀上了一层金边，红得更深、更浓了。
+
+我停下来，掏出手机拍了一张。
+
+没有用无人机，没有找角度，就是随手一拍。可回来看照片的时候，发现那张拍得最好。也许是因为那时候的光最柔，也许是因为那时候的心最静。
+
+出景区的时候，路过范仲淹纪念馆，我又看了一眼门口那棵银杏。银杏叶也黄了，和红枫站在一起，黄的归黄的，红的归红的，谁也不抢谁的风头。
+
+车发动的时候，我从后视镜里看了一眼天平山。山不高，安安静静地立在那里，像一个不爱说话的老人，目送每一个来过的人。
+
+我在心里说了句：明年还来。
+
+## 六、给后来人的一些实在话
+
+1. **最佳时间：11月中下旬到12月上旬。** 这时候枫叶颜色最盛，红橙黄绿交织，是真正的“五彩枫”。去早了还没红透，去晚了叶子就落了。
+
+2. **门票：30元。** 红枫季期间凭票根可享受吴中多家景区门票优惠。
+
+3. **交通：建议绿色出行。** 红枫季周末人特别多，单日可达三四万人。坐地铁1号线到木渎站，换乘4路公交或假日专线直达。自驾的话周边有停车场和免费接驳巴士。
+
+4. **拍照机位：**
+   - **白云池茅草屋**：清晨7:30-9:00有薄雾时拍倒影，绝美。
+   - **御碑亭**：下午16:00-17:30夕阳斜照，古枫配石亭，很有味道。
+   - **望枫台**：可以俯瞰整片枫海，上午去视野最好。
+
+5. **必看的人文景点：**
+   - **范文正公忠烈庙**：范仲淹纪念馆，了解这位大政治家的生平。
+   - **高义园**：乾隆皇帝题写的匾额，清代建筑群。
+   - **先忧后乐牌坊**：范公精神的象征，一定要看看。
+
+6. **早点去！** 早上7点就开门了，趁着人少先逛古枫林和白云池，避开人流高峰，安安静静地看一会儿，那种感觉和在人群里挤着看完全不同。
+
+7. **穿舒服的鞋子。** 山路虽然不高，但要走的路不少，尤其是去望枫台和一線天，运动鞋最合适。
+
+---

@@ -1,43 +1,188 @@
 ---
-title: If you cannot do great things, do small things in a great way
-description: Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative a...
-pubDate: 2025-11-11 15:01:35 +0300
+title: 皖南歙县
+description: 八脚牌坊下的千年回望
+pubDate: 2025-05-01 15:01:35 +0300
 image: '../../images/04.jpg'
 videoEmbed: https://www.bilibili.com/video/BV1wPwAzNER2
 tags: [lifestyle, rest, notes]
 ---
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace [Dino Reichmuth](https://unsplash.com/photos/A5rCN8626Ck) diversity and empowerment.
+# 徽州古城游记：八脚牌坊下的千年回望
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+## 一、出发
 
-### Synergistically evolve
+去年五一，我又一次把假期交给了皖南。
 
-Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.
+从婺女洲出来，本来打算直接回程，可朋友在电话里说：“你都到婺源了，歙县就在隔壁，徽州古城不去看看？”我想了想，也对，来都来了，便调转车头，往歙县方向开去。
 
-:::wide
-![House](../../images/04-1.jpg)
-*Photo by [Dino Reichmuth](https://unsplash.com/photos/A5rCN8626Ck) on [Unsplash](https://unsplash.com/)*
-:::
+从婺源到歙县，也就一个多小时的车程。一路上还是熟悉的皖南风光，山连山，竹连竹，偶尔闪过几栋白墙黛瓦的老房子。我一边开车一边想，徽州这个名字，念起来就带着一股子墨香味儿。
 
-Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+小时候背汤显祖的那句“一生痴绝处，无梦到徽州”，只觉得好听，并不懂什么意思。等真正踏上这片土地，才隐约明白——有些地方，你没去过，它只是一个地名；你去过了，它就成了一辈子都忘不掉的情结。
 
-Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.
+到达歙县是下午两点多。车子停在古城外的停车场，我背着一个包，沿着城墙根慢慢走。城墙很高，青砖斑驳，墙头上长着几棵野草，在风里摇摇晃晃。城门上的“徽州”两个字，笔画沉稳，像是从几百年前就一直挂在那里，看着来来往往的人。
 
-> The longer I live, the more I realize that I am never wrong about anything, and that all the pains I have so humbly taken to verify my notions have only wasted my time!
+我没有急着从正门进去。之前在攻略上看到，古城里住着不少居民，有些小巷子是可以随便走的。我便沿着城墙往北走，拐进了一条叫“小北街”的巷子。
 
-Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.
+果然，走着走着，就进了古城。
 
-Phosfluorescently engage worldwide methodologies with web-enabled technology. Interactively coordinate proactive e-commerce via process-centric "outside the box" thinking. Completely pursue scalable customer service through sustainable [Charis Sims](https://unsplash.com/photos/WTrApnUJWho) potentialities.
+## 二、初见·烟火里的古城
 
-### Podcasting
+徽州古城给我的第一印象，不是那种被围起来供人参观的“景区”，而是一座活着的城。
 
-Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable internal or "organic" sources.
+街道两旁，剃头铺子、杂货店、小吃摊，一家挨着一家。一个老头坐在自家门槛上，端着茶杯晒太阳；几个大妈围在巷口聊天，说着我听不太懂的方言；放学的小孩背着书包在巷子里追逐打闹，笑声清脆得像铜铃。
 
-![Tree](../../images/04-2.jpg)
-*Photo by [Charis Sims](https://unsplash.com/photos/WTrApnUJWho) on [Unsplash](https://unsplash.com/)*
+这种烟火气，是在那些纯粹被商业包装出来的“古镇”里感受不到的。
 
-Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art customer service.
+沿着中和街往里走，两边是徽派老房子，白墙黛瓦，马头墙层层叠叠。阳光斜斜地打在墙上，光影斑驳，像一幅水墨画。
 
-Globally incubate standards compliant channels before scalable benefits. Quickly disseminate superior deliverables whereas web-enabled applications. Quickly drive clicks-and-mortar catalysts for change before vertical architectures.
+路过陶行知纪念馆的时候，我犹豫了一下，还是拐了进去。
 
-Credibly reintermediate backend ideas for cross-platform models. Continually reintermediate integrated processes through technically sound intellectual capital. Holistically foster superior methodologies without market-driven best practices.
+进门是一个天井，光线从头顶洒下来，照在“万世师表”四个大字上。那是宋庆龄亲笔题写的匾额，挂在正厅门楣上，字迹端庄有力。展厅里陈列着陶行知先生的生平事迹，有他写的文章，有他用过的物品，还有他提出“生活即教育”“社会即学校”的那些理念。
+
+我站在展柜前看了很久。
+
+这个从歙县走出去的教育家，一生都在为中国平民教育奔走。他本可以在大学里安安稳稳地做教授，却偏偏要去乡村办学校，教那些穷苦的孩子识字读书。他去世的时候，宋庆龄给他题了这四个字——万世师表。
+
+走出纪念馆，我的心情还沉浸在里面。
+
+## 三、许国石坊·八脚牌坊的传奇
+
+沿着中和街继续往北走，视野突然开阔起来。
+
+一座巨大的石牌坊矗立在街中央，八根石柱撑起整个牌坊，呈“口”字形排列，气势恢宏。
+
+这就是许国石坊。
+
+我站在牌坊底下仰头看，石柱、横梁、斗拱、雀替，全都是青黑色的茶园石，质地坚硬，雕工精美。柱脚趴着十二只石狮子，神态各异，有的张着嘴，有的闭着眼，像是在守护这座牌坊的百年秘密。
+
+牌坊上刻着“少保兼太子太保礼部尚书武英殿大学士许国”的字样，这是万历皇帝为了表彰许国的功绩而立的。据说，这种八柱围合的“八角牌坊”，在全国是独一无二的。
+
+我绕着牌坊走了一圈，从不同的角度看它。午后的阳光打在石柱上，光影在雕刻的纹路间游走，那些龙凤、麒麟、仙鹤，仿佛活了过来。
+
+旁边阳和门的二楼，有人探出头来看风景。据说登上城楼可以俯瞰整条老街，我本想上去，但想了想还是算了——我想把登高的机会，留给黄昏时分的城墙。
+
+## 四、黄昏·城墙上俯瞰千年
+
+下午五点左右，我登上了徽州古城的城墙。
+
+城墙不算太高，但足以俯瞰整个古城。放眼望去，青瓦白墙层层叠叠，马头墙高低错落，远处的山峦笼罩在一层薄雾里，若隐若现。
+
+夕阳正在西沉，金色的光洒在城墙上，把青砖染成了暖黄色。
+
+我在城墙上走了很久。
+
+脚下的青砖被岁月磨得光滑，有些地方长出了青苔。每隔一段就有一个垛口，透过垛口往外看，是古城里的人间烟火——有人在院子里收衣服，有人在屋顶上晾晒东西，还有炊烟从谁家的烟囱里袅袅升起。
+
+那一刻，我突然想起了陶行知。一百年前，他是不是也曾站在这里，看着这座生他养他的古城，想着那些穷苦孩子的未来？
+
+也想起了许国。四百多年前，他衣锦还乡，站在这里，看着为他立的这座牌坊，心里在想什么？
+
+还想起了那些从这里走出去的徽商。他们沿着新安江顺流而下，把茶叶、木材、墨锭运到全国各地，把银子运回老家，盖起这一座座气派的宅院、牌坊、祠堂。
+
+这座古城，见证了多少人的来去，又承载了多少人的悲欢。
+
+## 五、入夜·灯火里的古城
+
+天色渐渐暗了。
+
+城墙上的灯笼一盏一盏亮了起来，暖黄色的光映在青砖上，整座古城笼罩在一种温柔的氛围里。
+
+我从城墙上下来，沿着阳和门往南走。这时候的古城，比白天安静了许多。街上的游客少了，本地人也回家吃饭了，只有零星的几个人还在巷子里走着。
+
+路过大北街的时候，闻到一股香味，是一家卖毛豆腐的小摊。老板娘正在铁板上煎毛豆腐，“滋滋”作响，金黄色的外皮冒着油光。我要了一份，坐在路边的石墩上吃。外皮酥脆，里面软糯，蘸上辣椒酱，一口下去，满嘴香。
+
+吃完继续走，不知不觉走到了南谯楼。这是古城的南门，也是宋代建筑的遗存，那些“排栅柱”还保留着宋代的营造法式，看起来古朴而厚重。
+
+站在南谯楼下往外看，是华灯初上的歙县县城。古城的灯火和现代的霓虹交织在一起，新与旧，在这里并不冲突，反而有一种奇妙的和谐。
+
+我找了一个空旷的地方，升起无人机。
+
+当画面传回来的那一刻，我再次屏住了呼吸。从空中俯瞰，古城的轮廓清晰可见，城墙像一条发光的带子，把整座古城环抱其中。许国石坊在灯火中格外显眼，八根石柱在夜色中投下长长的影子。
+
+南谯楼和阳和门的灯光连成一片，像两颗明珠镶嵌在古城的中轴线上。远处的练江在夜色中闪着粼粼的光，渔梁坝横卧江上，静默如初。
+
+那一刻，我觉得自己像是穿越了。几百年的时光，在这一刻折叠——许国从这里走过，陶行知从这里走过，无数徽商从这里走过。而我，一个普普通通的游客，也有幸站在这里，看他们曾经看过的风景。
+
+## 六、夜宿·古城里的梦
+
+我在古城里面找了一家民宿住下。
+
+房间不大，但推开窗就能看见许国石坊的顶部。洗漱完，我泡了杯茶，坐在窗边发呆。夜风吹进来，带着青石板路被晒了一天后散发的余温，还有谁家院子里飘来的栀子花香。
+
+远处偶尔传来几声犬吠，近处是风吹过马头墙的呜咽声。
+
+我关掉手机，躺在床上，听着窗外的虫鸣。迷迷糊糊间，想起白天看到的那些场景——陶行知纪念馆里的老照片、许国石坊上的石狮子、城墙上看见的炊烟……
+
+这些画面在脑子里转来转去，像一部默片，没有声音，却格外清晰。
+
+## 七、晨起·归途
+
+第二天清晨，我是被鸟叫声叫醒的。
+
+推开窗，山间起了薄雾，许国石坊在雾气中若隐若现。趁着游客还没进来，我又逛了一圈。清晨的古城空无一人，青石板路被露水打湿，泛着光。早餐店刚刚开门，蒸汽从蒸笼里冒出来，空气里弥漫着米糕的甜香。
+
+我在街边吃了一碗包袱饺，馅料是笋干肉末，皮薄馅大，一口下去，鲜得掉眉毛。
+
+吃完早餐，我去了一趟渔梁坝。这是新安江上最古老的拦河坝，全部用坚石垒砌，巨石之间用“元宝钉”和“燕尾榫”牢牢锁住，历经千年而不垮。
+
+站在坝上往下看，江水从石缝间奔涌而出，水花四溅。很难想象，几百年前，那些徽商就是从这里出发，顺流而下，走向全国的。
+
+他们是带着怎样的心情离开家乡的？是依依不舍，还是意气风发？
+
+我不知道。但我知道，他们中的很多人，再也没有回来。
+
+## 八、给后来人的一些实在话
+
+回来之后，有朋友问我徽州古城怎么样。我总结了几点，希望能帮到想去的人：
+
+**1. 关于时间：下午入园，住一晚，第二天走。**
+建议下午两三点到，先逛白天的古城，看许国石坊、徽州府衙、陶行知纪念馆、斗山街。傍晚登城墙看日落，晚上看夜景。住一晚，第二天早上去渔梁坝，然后返程。
+
+**2. 关于门票：可以免费逛大部分区域。**
+徽州古城比较特殊，古城内有居民居住，主街区是可以免费逛的。只有徽州府衙、古城墙等核心景点需要买票（联票约78-100元）。如果对府衙不太感兴趣，完全可以免费逛大半天。
+
+**3. 关于住宿：推荐住古城内或附近。**
+古城内有一些民宿，比如九月徽州客栈，就在古城里面，出门就是老街，很方便。价格平日200-400元，节假日会涨一些。如果预算有限，可以选择古城外的酒店。
+
+**4. 必打卡景点：**
+- **许国石坊**：全国唯一的八角牌坊，一定要绕一圈看，从不同角度感受它的气势。
+- **徽州府衙**：复建的明代府衙，可以了解古徽州的政治文化。
+- **陶行知纪念馆**：免费参观，了解这位教育家的生平，很受触动。
+- **斗山街**：古城的居民区，青石板路、老宅子、烟火气，适合慢慢逛。
+- **渔梁坝**：离古城步行约20分钟，古徽商的水运起点，很有历史感。
+
+**5. 拍照机位：**
+- **城墙**：傍晚时分，夕阳下的古城全景，绝美。
+- **许国石坊**：可以从阳和门二楼俯拍，也可以从地面仰拍，都很出片。
+- **斗山街**：清晨或傍晚，人少的时候，青石板路配马头墙，很有味道。
+- **南谯楼**：晚上亮灯后拍，很有意境。
+
+**6. 美食推荐：**
+- **毛豆腐**：徽州特色，外酥里嫩，蘸辣椒酱吃。
+- **包袱饺**：像包袱一样的饺子，馅料丰富。
+- **黄山烧饼**：酥脆可口，可以当伴手礼。
+- **臭鳜鱼**：徽州名菜，发酵的独特香味，喜欢的人很喜欢。
+
+**7. 注意事项：**
+- 穿舒服的鞋子！古城里全是石板路，走一天脚会累。
+- 早上和傍晚是最佳游览时间，中午人多又晒。
+- 如果想省钱，可以走小北街、大北街这些小巷子进去，主街区免费逛。
+
+## 九、结语
+
+从歙县回来快一年了。
+
+现在回想起来，徽州古城给我的，不是那种一眼惊艳的美，而是一种越品越有味道的醇厚。它不像望仙谷那样仙气飘飘，也不像婺女洲那样星河璀璨，它就像一位饱经沧桑的老人，安安静静地坐在那里，等着你走近，听它讲那些几百年前的故事。
+
+我喜欢这种地方。
+
+它不急着向你展示什么，也不刻意讨好你。它只是在那里，用它的城墙、牌坊、老街、巷弄，告诉你——这里是徽州，这里曾经发生过这些事，这里曾经住过这些人。
+
+如果你也想去，记得，不要赶时间。在那些老巷子里慢慢走，在城墙上坐一会儿，在许国石坊下发一会儿呆。你会发现，有些东西，是急不来的。
+
+就像那句诗说的——一生痴绝处，无梦到徽州。
+
+有些地方，值得你用一生去奔赴。
+
+---
+
+*写于2025年5月，回忆去年那个灯火璀璨的夜晚。*

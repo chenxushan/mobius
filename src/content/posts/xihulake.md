@@ -4,7 +4,7 @@ description: 欲把西湖比西子，淡妆浓抹总相宜
 pubDate: 2025-11-14 15:01:35 +0300
 image: '../../images/02.jpg'
 videoEmbed: https://www.bilibili.com/video/BV1Bw4m127Gy
-tags: [workflow, hobby, study]
+tags: [travel, hobby]
 ---
 ## 水底的故乡
 
