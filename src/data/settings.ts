@@ -117,9 +117,9 @@ export const settings = {
       link: 'https://pinterest.com',
     },
     {
-      icon: 'fa7-brands:youtube',
-      name: 'Youtube',
-      link: 'https://youtube.com',
+      icon: 'xhs',
+      name: '小红书',
+      link: 'https://www.xiaohongshu.com/user/profile/56e964f4aed7581aceee190e',
     }
   ],
 
