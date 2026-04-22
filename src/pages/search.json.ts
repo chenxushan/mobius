@@ -6,7 +6,7 @@ export async function GET() {
     title: post.data.title,
     description: post.data.description,
     pubDate: post.data.pubDate,
-    image: post.data.image?.src,
+    image: typeof post.data.image === 'string' ? post.data.image : post.data.image?.src,
     url: `/posts/${post.id}/`,
     content: post.body
   }));

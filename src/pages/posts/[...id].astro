@@ -43,14 +43,16 @@ const { data } = post;
 const { Content } = await render(post);
 const postUrl = new URL(Astro.url.pathname, settings.site.url).toString();
 const shareImage = data.image
-  ? new URL(data.image.src, settings.site.url).toString()
+  ? typeof data.image === 'string'
+    ? data.image
+    : new URL(data.image.src, settings.site.url).toString()
   : undefined;
 ---
 
 <BaseLayout
   title={data.title}
   description={data.description}
-  image={data.image?.src}
+  image={typeof data.image === 'string' ? data.image : data.image?.src}
 >
   <div class='post-head'>
     <div class='container'>
@@ -75,7 +77,11 @@ const shareImage = data.image
             data.image && (
               <div class='col col-6 col-d-12'>
                 <div class='post-image'>
-                  <Image src={data.image} alt={data.title} loading='eager' />
+                  {typeof data.image === 'string' ? (
+                    <img src={data.image} alt={data.title} loading='eager' />
+                  ) : (
+                    <Image src={data.image} alt={data.title} loading='eager' />
+                  )}
                 </div>
               </div>
             )

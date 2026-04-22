@@ -24,7 +24,7 @@ for (const tagName of allUniqueTags) {
     (post) =>
       post.data.tags?.includes(tagName) &&
       post.data.image &&
-      !usedImages.has(post.data.image.src),
+      !usedImages.has(typeof post.data.image === 'string' ? post.data.image : post.data.image.src),
   );
 
   if (matchingPost && matchingPost.data.image) {
@@ -32,7 +32,7 @@ for (const tagName of allUniqueTags) {
       name: tagName,
       image: matchingPost.data.image,
     });
-    usedImages.add(matchingPost.data.image.src);
+    usedImages.add(typeof matchingPost.data.image === 'string' ? matchingPost.data.image : matchingPost.data.image.src);
   }
 }
 ---
@@ -53,11 +53,11 @@ for (const tagName of allUniqueTags) {
                 <a href={`/tags#${tag.name}`} class='tag-image'>
                   <span class='tag-name'>{tag.name}</span>
                   {tag.image && (
-                    <Image
-                      src={tag.image}
-                      alt={tag.name}
-                      loading='lazy'
-                    />
+                    typeof tag.image === 'string' ? (
+                      <img src={tag.image} alt={tag.name} loading='lazy' />
+                    ) : (
+                      <Image src={tag.image} alt={tag.name} loading='lazy' />
+                    )
                   )}
                 </a>
               </div>

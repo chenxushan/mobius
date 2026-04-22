@@ -72,12 +72,11 @@ const videoEmbedUrl = post.data.videoEmbed ? getVideoEmbedUrl(post.data.videoEmb
       {
         !videoEmbedUrl && post.data.image && (
           <a class='article__image' href={postUrl}>
-            <Image
-              src={post.data.image}
-              alt={post.data.title}
-              loading='lazy'
-              decoding='async'
-            />
+            {typeof post.data.image === 'string' ? (
+              <img src={post.data.image} alt={post.data.title} loading='lazy' decoding='async' />
+            ) : (
+              <Image src={post.data.image} alt={post.data.title} loading='lazy' decoding='async' />
+            )}
           </a>
         ) }
     </div>
