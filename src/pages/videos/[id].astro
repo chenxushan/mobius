@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { getVideoEmbedUrl } from '../../utils/video';
 
 export async function getStaticPaths() {
   const videos = await getCollection('videos', ({ data }) => !data.draft);
@@ -12,13 +13,8 @@ export async function getStaticPaths() {
 
 const { video } = Astro.props;
 
-function getVideoEmbedUrl(url: string): string {
-  if (url.includes('player.bilibili.com')) return url;
-  const bvMatch = url.match(/bilibili\.com\/video\/(BV\w+)/);
-  if (bvMatch) return `https://player.bilibili.com/player.html?bvid=${bvMatch[1]}`;
-  const avMatch = url.match(/bilibili\.com\/video\/av(\d+)/);
-  if (avMatch) return `https://player.bilibili.com/player.html?aid=${avMatch[1]}`;
-  return url;
+function formatVideoDate(date: Date): string {
+  return new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long' }).format(date);
 }
 
 const embedUrl = getVideoEmbedUrl(video.data.videoUrl);
@@ -30,7 +26,7 @@ const embedUrl = getVideoEmbedUrl(video.data.videoUrl);
       <a href='/videos/' class='back-link'>&larr; Back to Videos</a>
 
       <h1 class='video-title'>{video.data.title}</h1>
-      <p class='video-meta'>{video.data.location} · {video.data.date}</p>
+      <p class='video-meta'>{video.data.location} · {formatVideoDate(video.data.date)}</p>
       <p class='video-desc'>{video.data.description}</p>
 
       <div class='video-embed'>

@@ -2,6 +2,7 @@
 import Search from './Search.astro';
 import { Icon } from 'astro-icon/components';
 import { settings } from '../data/settings';
+import MathCurveLogo from './MathCurveLogo.astro';
 
 const { pathname } = Astro.url;
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '') + '/';
@@ -21,7 +22,7 @@ const isActive = (url: string) => {
     <div class='row'>
       <div class='header__inner col col-12'>
         <div class='logo'>
-          <a class='logo__link' href={base}>
+          <a class='logo__link' href={base} aria-label={settings.site.title}>
             {
               settings.site.logo || settings.site.logoDark ? (
                 <>
@@ -41,7 +42,7 @@ const isActive = (url: string) => {
                   )}
                 </>
               ) : (
-                settings.site.title
+                <MathCurveLogo />
               )
             }
           </a>
@@ -70,7 +71,6 @@ const isActive = (url: string) => {
                   class='nav__link lang-toggle-btn'
                   id='lang-toggle-btn'
                   title='切换语言'
-                  onclick="toggleLang()"
                 >
                   EN
                 </button>
@@ -115,99 +115,10 @@ const isActive = (url: string) => {
 <Search />
 
 <script>
-  // Make functions globally accessible
-  function getStoredLang(): string {
-    try {
-      return localStorage.getItem('mobius-lang') || 'zh';
-    } catch {
-      return 'zh';
-    }
-  }
+  import { initHeaderI18n } from '../scripts/ui/header-i18n';
 
-  function setStoredLang(lang: string): void {
-    try {
-      localStorage.setItem('mobius-lang', lang);
-    } catch {
-      // localStorage not available
-    }
-  }
-
-  function updatePageTranslations(lang: string): void {
-    const translations = {
-      en: {
-        'home': 'Home',
-        'about': 'About',
-        'contact': 'Contact',
-        'tags': 'Tags',
-        'elements': 'Elements',
-        'photos': 'Photos',
-        'videos': 'Videos',
-        'search': 'Search',
-        'menu': 'Menu',
-      },
-      zh: {
-        'home': '首页',
-        'about': '关于',
-        'contact': '联系',
-        'tags': '标签',
-        'elements': '元素',
-        'photos': '照片',
-        'videos': '视频',
-        'search': '搜索',
-        'menu': '菜单',
-      }
-    };
-    const t = translations[lang as keyof typeof translations];
-    if (!t) return;
-
-    const navLinkMap: Record<string, string> = {
-      '/': t['home'],
-      '/about/': t['about'],
-      '/contact/': t['contact'],
-      '/tags/': t['tags'],
-      '/elements/': t['elements'],
-      '/photos/': t['photos'],
-      '/videos/': t['videos'],
-    };
-
-    document.querySelectorAll('.nav__link').forEach((el) => {
-      const href = (el as HTMLAnchorElement).getAttribute('href');
-      if (!href) return;
-      if (navLinkMap[href]) {
-        el.textContent = navLinkMap[href];
-      }
-    });
-
-    const menuTitle = document.querySelector('.nav__title');
-    if (menuTitle) menuTitle.textContent = t['menu'];
-
-    const langBtn = document.getElementById('lang-toggle-btn');
-    if (langBtn) {
-      langBtn.textContent = lang === 'en' ? '中' : 'EN';
-      langBtn.setAttribute('title', lang === 'en' ? '切换到中文' : 'Switch to English');
-    }
-
-    document.documentElement.lang = lang;
-  }
-
-  function toggleLang(): void {
-    const currentLang = getStoredLang();
-    const newLang = currentLang === 'en' ? 'zh' : 'en';
-    setStoredLang(newLang);
-    updatePageTranslations(newLang);
-  }
-
-  // Expose toggleLang globally
-  (window as any).toggleLang = toggleLang;
-
-  // Initialize
-  function init(): void {
-    const storedLang = getStoredLang();
-    updatePageTranslations(storedLang);
-  }
-
-  init();
-  document.addEventListener('astro:page-load', init);
+  initHeaderI18n();
+  document.addEventListener('astro:page-load', initHeaderI18n);
 </script>
 
 <style>
