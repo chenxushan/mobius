@@ -13,6 +13,10 @@ export async function getStaticPaths() {
 const { album } = Astro.props;
 const lang = Astro.currentLocale || 'en';
 const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
+
+function formatAlbumDate(date: Date): string {
+  return new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long' }).format(date);
+}
 ---
 
 <BaseLayout title={album.data.title} description={album.data.description}>
@@ -21,7 +25,7 @@ const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
       <a href='/photos/' class='back-link'>&larr; {backLabel}</a>
 
       <h1 class='album-title'>{album.data.title}</h1>
-      <p class='album-meta'>{album.data.location} · {album.data.date}</p>
+      <p class='album-meta'>{album.data.location} · {formatAlbumDate(album.data.date)}</p>
       <p class='album-desc'>{album.data.description}</p>
 
       <div class='photos-grid'>

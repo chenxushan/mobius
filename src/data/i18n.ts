@@ -11,6 +11,7 @@ export const translations = {
 
     // Search
     search: 'Search',
+    menu: 'Menu',
     searchPlaceholder: 'Search posts...',
     noResults: 'No results found',
 
@@ -57,6 +58,7 @@ export const translations = {
 
     // Search
     search: '搜索',
+    menu: '菜单',
     searchPlaceholder: '搜索文章...',
     noResults: '没有找到结果',
 

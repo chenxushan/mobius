@@ -32,7 +32,7 @@ const photoAlbums = defineCollection({
     title: z.string(),
     description: z.string(),
     location: z.string(),
-    date: z.string(),
+    date: z.coerce.date(),
     cover: z.string().optional(),
     images: z.array(z.object({
       src: z.string(),
@@ -48,7 +48,7 @@ const videos = defineCollection({
     title: z.string(),
     description: z.string(),
     location: z.string(),
-    date: z.string(),
+    date: z.coerce.date(),
     cover: z.string().optional(),
     videoUrl: z.string(),
     draft: z.boolean().default(false),

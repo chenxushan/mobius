@@ -10,6 +10,10 @@ export async function getStaticPaths({ paginate }) {
 }
 
 const { page } = Astro.props;
+
+function formatAlbumDate(date: Date): string {
+  return new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long' }).format(date);
+}
 ---
 
 <BaseLayout title='Photos' description='Photo albums'>
@@ -28,7 +32,7 @@ const { page } = Astro.props;
             </div>
             <div class='album-card__info'>
               <h3 class='album-card__title'>{album.data.title}</h3>
-              <p class='album-card__meta'>{album.data.location} · {album.data.date}</p>
+              <p class='album-card__meta'>{album.data.location} · {formatAlbumDate(album.data.date)}</p>
               <p class='album-card__desc'>{album.data.description}</p>
             </div>
           </a>
