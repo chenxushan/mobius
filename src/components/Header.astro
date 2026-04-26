@@ -2,6 +2,7 @@
 import Search from './Search.astro';
 import { Icon } from 'astro-icon/components';
 import { settings } from '../data/settings';
+import MathCurveLogo from './MathCurveLogo.astro';
 
 const { pathname } = Astro.url;
 const base = import.meta.env.BASE_URL.replace(/\/+$/, '') + '/';
@@ -21,7 +22,7 @@ const isActive = (url: string) => {
     <div class='row'>
       <div class='header__inner col col-12'>
         <div class='logo'>
-          <a class='logo__link' href={base}>
+          <a class='logo__link' href={base} aria-label={settings.site.title}>
             {
               settings.site.logo || settings.site.logoDark ? (
                 <>
@@ -41,7 +42,7 @@ const isActive = (url: string) => {
                   )}
                 </>
               ) : (
-                settings.site.title
+                <MathCurveLogo />
               )
             }
           </a>
