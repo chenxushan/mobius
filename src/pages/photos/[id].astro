@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PhotoFlipbook from '../../components/PhotoFlipbook.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -24,13 +25,23 @@ const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
       <p class='album-meta'>{album.data.location} · {album.data.date}</p>
       <p class='album-desc'>{album.data.description}</p>
 
-      <div class='photos-grid'>
-        {album.data.images?.map((img, index) => (
-          <button class='photo-item' data-index={index} data-src={img.src} data-alt={img.alt}>
-            <img src={img.src} alt={img.alt} loading='lazy' />
-          </button>
-        ))}
-      </div>
+      {album.data.presentation === 'flipbook' ? (
+        <PhotoFlipbook
+          title={album.data.title}
+          location={album.data.location}
+          date={album.data.date}
+          images={album.data.images}
+          theme={album.data.theme}
+        />
+      ) : (
+        <div class='photos-grid'>
+          {album.data.images?.map((img, index) => (
+            <button class='photo-item' data-index={index} data-src={img.src} data-alt={img.alt}>
+              <img src={img.src} alt={img.alt} loading='lazy' />
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 

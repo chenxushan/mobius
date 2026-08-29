@@ -1,6 +1,11 @@
 import { glob } from 'astro/loaders';
 import { defineCollection, z } from 'astro:content';
 
+const hexColor = z.string().regex(
+  /^#(?:[\da-fA-F]{3}|[\da-fA-F]{4}|[\da-fA-F]{6}|[\da-fA-F]{8})$/,
+  'Theme colors must use hexadecimal CSS notation, for example #173f39.',
+);
+
 const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
   schema: ({ image }) => z.object({
@@ -38,6 +43,13 @@ const photoAlbums = defineCollection({
       src: z.string(),
       alt: z.string(),
     })).default([]),
+    presentation: z.enum(['grid', 'flipbook']).default('grid'),
+    theme: z.object({
+      paper: hexColor.optional(),
+      cover: hexColor.optional(),
+      ink: hexColor.optional(),
+      muted: hexColor.optional(),
+    }).optional(),
     draft: z.boolean().default(false),
   }),
 });
