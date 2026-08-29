@@ -51,6 +51,13 @@ const themeStyle = [
 
   <div class='photo-flipbook__stage'>
     <div class='photo-flipbook__rig'>
+      <div class='photo-flipbook__preview book-cover' aria-hidden='true'>
+        <div class='book-cover__title'>
+          <h2>{title}</h2>
+          <p class='book-cover__folio'>{location} · {date}</p>
+        </div>
+      </div>
+
       <div class='photo-flipbook__book' data-page-width='360' data-page-height='640'>
         <article class='book-page book-cover' data-density='hard' aria-label='封面'>
           <div class='book-cover__title'>
@@ -73,12 +80,12 @@ const themeStyle = [
   </div>
 
   <footer class='photo-flipbook__controls' aria-label='相册控制'>
-    <button class='photo-flipbook__previous' type='button' aria-label='上一页'>&larr;</button>
+    <button class='photo-flipbook__previous' type='button' aria-label='上一页' disabled>&larr;</button>
     <div class='photo-flipbook__status' aria-live='polite'>
       <span class='photo-flipbook__page-status'>封面</span>
       <small>拖动、轻扫、点击页角，或使用方向键</small>
     </div>
-    <button class='photo-flipbook__next' type='button' aria-label='下一页'>&rarr;</button>
+    <button class='photo-flipbook__next' type='button' aria-label='下一页' disabled>&rarr;</button>
   </footer>
 
   <p class='photo-flipbook__count'>{images.length} 幅精选地图 · {totalLeaves} 页</p>
@@ -167,9 +174,23 @@ const themeStyle = [
 
   .photo-flipbook__book {
     position: relative;
+    grid-area: 1 / 1;
     isolation: isolate;
     filter: drop-shadow(0 24px 26px rgb(31 28 22 / 22%));
+    visibility: hidden;
   }
+
+  .photo-flipbook[data-ready] .photo-flipbook__book { visibility: visible; }
+
+  .photo-flipbook__preview {
+    box-sizing: border-box;
+    grid-area: 1 / 1;
+    width: min(100%, 374px);
+    aspect-ratio: 9 / 16;
+    filter: drop-shadow(0 24px 26px rgb(31 28 22 / 22%));
+  }
+
+  .photo-flipbook[data-ready] .photo-flipbook__preview { display: none; }
 
   .photo-flipbook .book-page {
     position: relative;
