@@ -42,8 +42,11 @@ const photoAlbums = defineCollection({
     images: z.array(z.object({
       src: z.string(),
       alt: z.string(),
+      width: z.number().positive().optional(),
+      height: z.number().positive().optional(),
     })).default([]),
-    presentation: z.enum(['grid', 'flipbook']).default('grid'),
+    presentation: z.enum(['grid', 'flipbook', 'wall', 'slideshow', 'gallery']).default('grid'),
+    transition: z.enum(['fade', 'vertical-slide', 'horizontal-reveal', 'horizontal-slide', 'horizontal-scroll', 'grid-slide']).default('horizontal-slide'),
     theme: z.object({
       paper: hexColor.optional(),
       cover: hexColor.optional(),
