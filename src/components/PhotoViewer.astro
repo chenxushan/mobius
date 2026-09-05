@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  images: CollectionEntry<'photoAlbums'>['data']['images'];
+  transition: CollectionEntry<'photoAlbums'>['data']['transition'];
+  title: string;
+  inline?: boolean;
+}
+const { images, title, transition, inline = false } = Astro.props;
+const Surface = inline ? 'div' : 'dialog';
+const effects = [
+  ['fade', '淡入淡出'], ['vertical-slide', '纵向滑动'],
+  ['horizontal-reveal', '侧边揭幕'], ['horizontal-slide', '横向滑动'],
+  ['horizontal-scroll', '横向卷轴'], ['grid-slide', '网格缩放'],
+];
+---
+
+<album-viewer data-inline={inline ? 'true' : 'false'} data-transition={inline ? transition : 'fade'}>
+  <Surface class:list={['photo-viewer', { 'photo-viewer--inline': inline }]} aria-label={`${title}照片浏览`} tabindex='-1'>
+    <div class='photo-viewer__topbar'>
+      <span class='photo-viewer__title'>{title}</span>
+      {inline ? (
+        <label class='photo-viewer__effect'>切换效果
+          <select aria-label='切换效果'>
+            {effects.map(([value, label]) => <option value={value} selected={transition === value}>{label}</option>)}
+          </select>
+        </label>
+      ) : <button type='button' data-close aria-label='关闭照片浏览'>×</button>}
+    </div>
+    <div class='photo-viewer__stage' tabindex='0' aria-label='照片区域，使用方向键切换'>
+      {images.map((photo, index) => (
+        <figure class='photo-viewer__slide' data-slide={index} hidden={index !== 0}>
+          <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading={inline && index === 0 ? 'eager' : 'lazy'} decoding='async' draggable='false' />
+          <span class='photo-viewer__error' hidden>照片暂时无法加载</span>
+        </figure>
+      ))}
+    </div>
+    <div class='photo-viewer__controls'>
+      <button type='button' data-previous aria-label='上一张' disabled={images.length < 2}>←</button>
+      <div class='photo-viewer__status' aria-live='polite' aria-atomic='true'>
+        <span data-counter>01 / {String(images.length).padStart(2, '0')}</span>
+        <p data-caption>{images[0]?.alt}</p>
+      </div>
+      <button type='button' data-next aria-label='下一张' disabled={images.length < 2}>→</button>
+    </div>
+    <nav class='photo-viewer__thumbnails' aria-label='选择照片'>
+      {images.map((photo, index) => (
+        <button type='button' data-thumbnail={index} aria-label={`第 ${index + 1} 张：${photo.alt}`} aria-current={index === 0 ? 'true' : undefined}>
+          <img src={photo.src} alt='' loading='lazy' decoding='async' />
+        </button>
+      ))}
+    </nav>
+    <p class='photo-viewer__hint'>{inline ? '左右轻扫或使用方向键浏览' : '左右轻扫或使用方向键浏览 · Esc 关闭'}</p>
+  </Surface>
+</album-viewer>
+
+<script>
+  import '../scripts/photo-viewer';
+</script>
+
+<style>
+  album-viewer { display: block; }
+  .photo-viewer { box-sizing: border-box; width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 20px clamp(14px, 4vw, 60px); border: 0; color: #eeeae1; background: #161715; overscroll-behavior: contain; }
+  dialog.photo-viewer::backdrop { background: #161715ee; }
+  .photo-viewer--inline, dialog.photo-viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto auto; gap: 16px; }
+  .photo-viewer--inline { width: 100%; height: clamp(620px, 90dvh, 960px); border-radius: 4px; }
+  .photo-viewer__topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+  .photo-viewer__title { font-size: 13px; letter-spacing: .08em; }
+  .photo-viewer button { display: grid; flex-shrink: 0; width: 44px; height: 44px; place-items: center; padding: 0; border: 1px solid #ffffff38; border-radius: 50%; background: transparent; color: inherit; font-size: 22px; cursor: pointer; }
+  .photo-viewer button:hover { background: #ffffff18; }
+  .photo-viewer button:disabled { opacity: .25; cursor: default; }
+  .photo-viewer button:focus-visible, .photo-viewer select:focus-visible, .photo-viewer__stage:focus-visible { outline: 2px solid #e5bd80; outline-offset: 4px; }
+  .photo-viewer__effect { display: flex; align-items: center; gap: 10px; font-size: 11px; color: #bab7ae; }
+  .photo-viewer select { max-width: 150px; border: 1px solid #ffffff38; border-radius: 4px; padding: 9px; color: #eeeae1; background: #232421; font: inherit; font-size: 12px; }
+  .photo-viewer__stage { position: relative; min-height: 0; overflow: hidden; isolation: isolate; touch-action: pan-y pinch-zoom; outline: none; }
+  .photo-viewer__slide { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; width: 100%; height: 100%; }
+  .photo-viewer__slide[hidden] { display: none; }
+  .photo-viewer__slide img { display: block; margin: 0; width: 100%; height: 100%; min-height: 0; object-fit: contain; user-select: none; }
+  .photo-viewer__error { position: absolute; padding: 16px; color: #cbc5b9; background: #222; font-size: 13px; }
+  .photo-viewer__stage[data-scroll] { display: flex; gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; touch-action: pan-x pan-y pinch-zoom; scrollbar-width: thin; scrollbar-color: #777 #222; }
+  .photo-viewer__stage[data-scroll] .photo-viewer__slide { position: relative; inset: auto; flex: 0 0 var(--scroll-width, 86%); }
+  .photo-viewer__stage[data-scroll]::before, .photo-viewer__stage[data-scroll]::after { content: ''; flex: 0 0 var(--scroll-start, 0px); }
+  .photo-viewer__stage[data-scroll]::after { flex-basis: var(--scroll-end, 0px); }
+  .photo-viewer__controls { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; align-items: center; gap: 20px; width: min(100%, 560px); margin: 0 auto; }
+  .photo-viewer__status { text-align: center; font-size: 12px; }
+  .photo-viewer__status > span { font-variant-numeric: tabular-nums; letter-spacing: .2em; color: #c4b296; }
+  .photo-viewer__status p { margin: 5px 0 0; font-size: 12px; line-height: 1.5; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .photo-viewer__thumbnails { display: flex; gap: 8px; width: 100%; max-width: 780px; margin: 0 auto; padding: 5px 2px; overflow-x: auto; scrollbar-width: thin; scrollbar-color: #555 transparent; }
+  .photo-viewer__thumbnails button { width: 42px; height: 56px; border: 2px solid transparent; border-radius: 1px; opacity: .45; overflow: hidden; }
+  .photo-viewer__thumbnails button[aria-current='true'] { border-color: #e5bd80; opacity: 1; }
+  .photo-viewer__thumbnails button:hover, .photo-viewer__thumbnails button:focus-visible { opacity: 1; }
+  .photo-viewer__thumbnails img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; }
+  .photo-viewer__hint { margin: 0; color: #a4a299; text-align: center; font-size: 10px; letter-spacing: .08em; }
+  @media (max-width: 600px) {
+    .photo-viewer { padding: max(14px, env(safe-area-inset-top)) 12px max(14px, env(safe-area-inset-bottom)); gap: 12px; }
+    .photo-viewer--inline { height: max(620px, 85dvh); }
+    .photo-viewer--inline .photo-viewer__topbar { flex-wrap: wrap; }
+    .photo-viewer__thumbnails button { width: 36px; height: 48px; }
+  }
+</style>

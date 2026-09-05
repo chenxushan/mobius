@@ -322,10 +322,53 @@ src/content/photos/hangzhou-autumn.md
 
 文件名建议只使用小写英文字母、数字和连字符。
 
-相册支持两种展示形式：
+相册支持五种展示形式：
 
 - `presentation: grid`：传统网格和灯箱浏览，也是默认形式。
 - `presentation: flipbook`：纸质书风格的交互式翻页相册。
+- `presentation: wall`：带白色相纸边框的错落照片墙，照片倾斜、重叠，点击居中聚焦。
+- `presentation: slideshow`：单张照片浏览，可切换六种过渡效果，支持缩略图、方向键和左右轻扫。
+- `presentation: gallery`：按图片宽高比自适应排列的等高画廊，点击打开全屏灯箱。
+
+#### 新增照片墙、照片浏览或画廊
+
+复制 `src/content/photos/gugong-wall.md`、`gugong-slideshow.md` 或 `gugong-gallery.md`，更改文件名、相册信息和 `images` 即可。三个示例分别使用 19、10、11 张故宫照片。
+
+```yaml
+---
+title: 故宫光影
+description: 红墙与屋檐之间的片刻。
+location: 中国・北京
+date: 2026-09
+presentation: slideshow # 可选 wall、slideshow、gallery
+transition: horizontal-slide # slideshow 的默认切换效果
+cover: /images/albums/gugong/slideshow-01.webp
+images:
+  - src: /images/albums/gugong/slideshow-01.webp
+    alt: 故宫影像
+    width: 1440
+    height: 2558
+---
+```
+
+`width`、`height` 为可选的图片实际尺寸；建议填写，让画廊在图片加载前就按正确比例排布。不填写时画廊按 3:4 排列，大图浏览仍完整显示原图。省略 `presentation` 时继续使用 `grid`。
+
+`transition` 支持以下值，仅用于 `slideshow` 的初始效果；访客可在页面右上角即时切换：
+
+| 值 | 效果 |
+| --- | --- |
+| `fade` | 淡入淡出 |
+| `vertical-slide` | 纵向滑动 |
+| `horizontal-reveal` | 侧边揭幕 |
+| `horizontal-slide` | 横向滑动（默认） |
+| `horizontal-scroll` | 可自由横向滚动的连续照片卷轴 |
+| `grid-slide` | 模拟从缩略图网格中缩小、移入并放大 |
+
+浏览器支持左右方向键、Home / End、缩略图跳转和左右轻扫。纵向滑动也支持上下方向键；横向卷轴支持触屏及触控板自由滚动。灯箱按 Esc 关闭并将焦点还给原照片。系统开启“减少动态效果”时关闭过渡动画。照片为空时显示空状态，只有一张照片时禁用前后按钮。
+
+示例入口：`/photos/gugong-wall/`、`/photos/gugong-slideshow/`、`/photos/gugong-gallery/`。示例中的 `date` 是整理月份，可改成实际拍摄日期。三个示例相册的照片 `src` 直接使用提供的原始 HTTP 外链；本地照片副本与地址对照表保存在 `public/images/albums/gugong/`，封面继续使用本地图片。
+
+布局与效果参考：[照片墙](https://chenxushan.github.io/)、[PhotoFolio 切换效果](https://photofolio.zendesk.com/hc/en-us/articles/34881804447899-Transition-Type-Image-an-Video-Settings)、[Astro Photo Grid](https://github.com/kydecker/astro-photo-grid)。本项目使用原生 CSS、Web Animations 和 dialog 实现。
 
 ---
 
@@ -379,7 +422,7 @@ draft: false
 - `description`：显示在相册列表和详情页的简介。
 - `location`：拍摄地点，也会显示在书籍封面信息中。
 - `date`：拍摄或整理日期。
-- `presentation`：设置为 `flipbook` 启用翻页效果；设置为 `grid` 或省略时使用传统网格相册。
+- `presentation`：设置为 `flipbook` 启用翻页效果；也支持 `wall`、`slideshow`、`gallery`；设置为 `grid` 或省略时使用传统网格相册。
 - `cover`：照片列表页的相册缩略图，不是翻页相册内部书封的背景图片。
 - `images`：照片数组，排列顺序就是翻页顺序。
 - `src`：远程图片 URL。

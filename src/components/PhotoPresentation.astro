@@ -1,0 +1,86 @@
+---
+import PhotoViewer from './PhotoViewer.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { album: CollectionEntry<'photoAlbums'>['data']; }
+const { album } = Astro.props;
+const { images, presentation, title, transition } = album;
+// Stable positions keep the wall from reshuffling on each navigation.
+const rotations = [-8, 5, -3, 9, -6, 4, -10, 2, 7, -4];
+const offsets = [8, -9, 14, -3, 10, -6, 5, -12, 3, -7];
+---
+
+<section class:list={['photo-presentation', `photo-presentation--${presentation}`]} aria-label={`${title}相册`}>
+  {images.length === 0 ? <p class='photo-empty'>相册还没有照片。</p> : (
+    <>
+      {presentation !== 'slideshow' && (
+        <>
+          <div class='photo-presentation__intro'>
+            <span>{presentation === 'wall' ? '散落的时光' : presentation === 'gallery' ? '光影陈列' : '影像记录'}</span>
+            <span>{String(images.length).padStart(2, '0')} 张照片 · 点击查看</span>
+          </div>
+          <div class:list={['photo-collection', `photo-collection--${presentation}`]}>
+            {images.map((photo, index) => (
+              <button
+                type='button'
+                class='photo-tile'
+                data-photo-open={index}
+                aria-label={`查看第 ${index + 1} 张：${photo.alt}`}
+                aria-haspopup='dialog'
+                style={`--rotation: ${rotations[index % rotations.length]}deg; --offset: ${offsets[index % offsets.length]}px; --ratio: ${(photo.width || 3) / (photo.height || 4)}; --layer: ${index % 5 + 1}`}
+              >
+                <img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading={index < 5 ? 'eager' : 'lazy'} decoding='async' />
+                <span class='photo-tile__number' aria-hidden='true'>{String(index + 1).padStart(2, '0')}</span>
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+      <PhotoViewer {images} {title} {transition} inline={presentation === 'slideshow'} />
+    </>
+  )}
+</section>
+
+<style>
+  .photo-presentation { margin-top: 36px; }
+  .photo-presentation__intro { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 24px; color: var(--text-alt-color); font-size: 12px; letter-spacing: .1em; }
+  .photo-collection { isolation: isolate; }
+  .photo-tile { position: relative; display: block; min-width: 0; border: 0; padding: 0; background: var(--background-alt-color); cursor: zoom-in; }
+  .photo-tile img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; }
+  .photo-tile:focus-visible { outline: 3px solid var(--brand-color); outline-offset: 5px; z-index: 30; }
+  .photo-tile__number { position: absolute; right: 10px; bottom: 10px; color: #fff; font-size: 11px; text-shadow: 0 1px 4px #000; }
+  .photo-collection--grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .photo-collection--grid .photo-tile { aspect-ratio: 4 / 3; overflow: hidden; border-radius: 8px; }
+  .photo-collection--grid img { transition: transform .3s; }
+  .photo-collection--grid .photo-tile:hover img { transform: scale(1.05); }
+
+  .photo-presentation--wall { padding: clamp(20px, 4vw, 56px); background: radial-gradient(ellipse at top, #3c3c39, #222321 75%); border-radius: 4px; }
+  .photo-presentation--wall .photo-presentation__intro { color: #cec9bc; }
+  .photo-collection--wall { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; padding: 34px 12px 44px; }
+  .photo-collection--wall .photo-tile { align-self: center; z-index: var(--layer); margin: 10px -9px; padding: 8px 8px 27px; background: #f8f5ee; box-shadow: 0 8px 20px #0007; transform: translateY(var(--offset)) rotate(var(--rotation)); transition: transform .3s ease, box-shadow .3s ease; }
+  .photo-collection--wall img { height: auto; aspect-ratio: var(--ratio); object-fit: contain; background: #dedbd4; }
+  .photo-collection--wall .photo-tile__number { color: #787469; bottom: 5px; right: 10px; font-family: Georgia, serif; text-shadow: none; }
+  .photo-collection--wall .photo-tile:hover, .photo-collection--wall .photo-tile:focus-visible { z-index: 30; transform: translateY(-12px) rotate(0deg) scale(1.08); box-shadow: 0 20px 36px #0009; }
+
+  .photo-collection--gallery { display: flex; flex-wrap: wrap; gap: 8px; }
+  .photo-collection--gallery .photo-tile { flex-grow: var(--ratio); flex-basis: calc(280px * var(--ratio)); aspect-ratio: var(--ratio); overflow: hidden; }
+  .photo-collection--gallery img { transition: filter .3s; }
+  .photo-collection--gallery .photo-tile:hover img { filter: brightness(.85); }
+  .photo-collection--gallery .photo-tile__number { opacity: 0; transition: opacity .3s; }
+  .photo-collection--gallery .photo-tile:hover .photo-tile__number, .photo-collection--gallery .photo-tile:focus-visible .photo-tile__number { opacity: 1; }
+  .photo-empty { padding: 60px 20px; text-align: center; background: var(--background-alt-color); }
+  @media (max-width: 900px) {
+    .photo-collection--wall { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .photo-collection--grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    .photo-presentation__intro { font-size: 10px; letter-spacing: 0; }
+    .photo-presentation--wall { padding: 22px 20px; }
+    .photo-collection--wall { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 20px 4px; }
+    .photo-collection--wall .photo-tile { padding: 6px 6px 24px; margin: 12px -5px; }
+    .photo-collection--gallery { gap: 5px; }
+    .photo-collection--gallery .photo-tile { flex-basis: calc(180px * var(--ratio)); }
+    .photo-collection--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .photo-tile, .photo-tile img { transition: none !important; } }
+</style>
