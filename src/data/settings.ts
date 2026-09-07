@@ -50,6 +50,7 @@ export const settings = {
       { title: 'About', url: '/about/' },
       { title: 'Photos', url: '/photos/' },
       { title: 'Videos', url: '/videos/' },
+      { title: 'Agentic', url: 'https://agentic.mobius.cool/' },
     ],
   },
 
