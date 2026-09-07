@@ -203,11 +203,12 @@ navigation: {
     { title: 'About', url: '/about/' },
     { title: 'Photos', url: '/photos/' },
     { title: 'Videos', url: '/videos/' },
+    { title: 'Agentic', url: 'https://agentic.mobius.cool/' },
   ],
 }
 ```
 
-站内链接建议始终以 `/` 结尾，避免 Astro 路由行为不一致。
+站内链接建议始终以 `/` 结尾，避免 Astro 路由行为不一致；外部链接可直接填写完整的 `https://` 地址。
 
 ---
 
