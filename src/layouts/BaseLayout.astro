@@ -7,7 +7,7 @@ import Footer from '../components/Footer.astro';
 import { settings } from '../data/settings';
 import '../styles/main.scss';
 
-const { title, description, image, canonicalURL } = Astro.props;
+const { title, description, image, canonicalURL, immersive = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -19,11 +19,11 @@ const { title, description, image, canonicalURL } = Astro.props;
   </head>
 
   <body>
-    <Header />
+    {!immersive && <Header />}
     <main class='content'>
       <slot />
     </main>
-    <Footer />
+    {!immersive && <Footer />}
 
     <script>
       import '../scripts/common.ts';

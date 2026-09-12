@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PhotoFlipbook from '../../components/PhotoFlipbook.astro';
+import PhotoEditorialWall from '../../components/PhotoEditorialWall.astro';
+import PhotoMosaicWall from '../../components/PhotoMosaicWall.astro';
 import PhotoPresentation from '../../components/PhotoPresentation.astro';
 import { getCollection } from 'astro:content';
 
@@ -13,11 +15,18 @@ export async function getStaticPaths() {
 }
 
 const { album } = Astro.props;
+const presentation = album.data.presentation;
+const immersive = presentation === 'editorial-wall' || presentation === 'mosaic-wall';
 const lang = Astro.currentLocale || 'en';
 const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
 ---
 
-<BaseLayout title={album.data.title} description={album.data.description}>
+<BaseLayout title={album.data.title} description={album.data.description} {immersive}>
+  {presentation === 'editorial-wall' ? (
+    <PhotoEditorialWall album={album.data} />
+  ) : presentation === 'mosaic-wall' ? (
+    <PhotoMosaicWall album={album.data} />
+  ) : (
   <div class='container animate'>
     <div class='album-detail'>
       <a href='/photos/' class='back-link'>&larr; {backLabel}</a>
@@ -26,7 +35,7 @@ const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
       <p class='album-meta'>{album.data.location} · {album.data.date}</p>
       <p class='album-desc'>{album.data.description}</p>
 
-      {album.data.presentation === 'flipbook' ? (
+      {presentation === 'flipbook' ? (
         <PhotoFlipbook
           title={album.data.title}
           location={album.data.location}
@@ -39,6 +48,7 @@ const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
       )}
     </div>
   </div>
+  )}
 
 </BaseLayout>
 

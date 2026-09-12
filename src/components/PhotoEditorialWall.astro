@@ -1,0 +1,164 @@
+---
+import PhotoViewer from './PhotoViewer.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { album: CollectionEntry<'photoAlbums'>['data']; }
+const { album } = Astro.props;
+const { images, title, description, location, date, transition } = album;
+const chapters = [
+  ['建筑', 'ARCHITECTURE', '光线在石材与白墙之间刻下时间。'],
+  ['光影', 'LIGHT', '看见空间，也看见空间留下的安静。'],
+  ['陈列', 'DISPLAY', '展品、观看者与建筑短暂地共享一帧。'],
+  ['路径', 'PASSAGE', '沿着折线向前，城市的声音逐渐远去。'],
+  ['尺度', 'SCALE', '宏大的体量，最终落在手边的一处细节。'],
+  ['片刻', 'MOMENTS', '偶然经过的人，让秩序中的画面开始呼吸。'],
+  ['余韵', 'AFTERIMAGE', '离开之后，光与颜色仍停留在记忆里。'],
+] as const;
+const groupedImages = Array.from({ length: Math.ceil(images.length / 7) }, (_, index) => images.slice(index * 7, index * 7 + 7));
+---
+
+<editorial-photo-wall class='photo-presentation editorial-wall' data-layout='random' aria-label={`${title}照片墙`}>
+  <header class='editorial-wall__header'>
+    <div class='editorial-wall__nav'>
+      <a href='/photos/' aria-label='返回照片列表'>← 照片</a>
+      <a class='editorial-wall__wordmark' href='/' aria-label='返回 Mobius 首页'>{title}</a>
+      <div class='editorial-wall__meta'>
+        <span>{location}</span>
+        <span>{date}</span>
+        <span>{String(images.length).padStart(2, '0')} 张影像</span>
+      </div>
+    </div>
+    <div class='editorial-wall__title-row'>
+      <p>PHOTO ESSAY · NO. 01</p>
+      <h1>建筑 · 光线 · 人</h1>
+      <p class='editorial-wall__description'>{description}</p>
+    </div>
+  </header>
+
+  <main class='editorial-wall__chapters'>
+    {groupedImages.map((group, chapterIndex) => {
+      const chapter = chapters[chapterIndex % chapters.length];
+      return (
+        <section class='editorial-wall__chapter' aria-labelledby={`chapter-${chapterIndex}`}>
+          <div class='editorial-wall__chapter-label'>
+            <p id={`chapter-${chapterIndex}`}><span>{chapter[0]}</span> {chapter[1]}</p>
+            <p>{String(chapterIndex + 1).padStart(2, '0')} / {String(groupedImages.length).padStart(2, '0')}</p>
+          </div>
+          <div class='editorial-wall__mosaic'>
+            {group.map((photo, photoIndex) => {
+              const index = chapterIndex * 7 + photoIndex;
+              return (
+                <button
+                  type='button'
+                  class='editorial-wall__photo'
+                  data-photo-open={index}
+                  aria-label={`查看第 ${index + 1} 张：${photo.alt}`}
+                  aria-haspopup='dialog'
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.width}
+                    height={photo.height}
+                    loading={index < 7 ? 'eager' : 'lazy'}
+                    decoding='async'
+                  />
+                  <span aria-hidden='true'>{String(index + 1).padStart(2, '0')}</span>
+                </button>
+              );
+            })}
+          </div>
+          <p class='editorial-wall__statement'>{chapter[2]}</p>
+        </section>
+      );
+    })}
+  </main>
+
+  <div class='editorial-wall__layout-control' role='group' aria-label='照片墙排列方式'>
+    <span>排列</span>
+    <button type='button' data-wall-layout='random' aria-pressed='true'>随机</button>
+    <button type='button' data-wall-layout='linear' aria-pressed='false'>线性</button>
+    <span class='sr-only' data-wall-status aria-live='polite'>当前为随机编排</span>
+  </div>
+
+  <PhotoViewer {images} {title} {transition} />
+</editorial-photo-wall>
+
+<script>
+  import '../scripts/photo-editorial-wall';
+</script>
+
+<style>
+  .editorial-wall {
+    --wall-paper: #ada59b;
+    --wall-ink: #171714;
+    display: block;
+    min-height: 100vh;
+    color: var(--wall-ink);
+    background: var(--wall-paper);
+    font-family: var(--font-jost), Arial, sans-serif;
+  }
+  .editorial-wall__header { padding: 18px clamp(20px, 3vw, 48px) 0; }
+  .editorial-wall__nav { display: grid; grid-template-columns: 1fr auto 1fr; gap: clamp(16px, 3vw, 48px); align-items: center; font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+  .editorial-wall__nav a { color: inherit; }
+  .editorial-wall__nav a:hover { opacity: .55; }
+  .editorial-wall__wordmark { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(16px, 1.8vw, 25px); font-weight: 400; letter-spacing: .32em; text-align: center; }
+  .editorial-wall__meta { display: flex; justify-content: flex-end; gap: clamp(14px, 2.5vw, 38px); }
+  .editorial-wall__title-row { display: grid; grid-template-columns: 1fr minmax(260px, 1.2fr) 1fr; gap: 30px; align-items: end; min-height: 112px; padding: 34px 0 20px; border-bottom: 1px solid #17171455; }
+  .editorial-wall__title-row > p { margin: 0; font-size: 10px; line-height: 1.55; letter-spacing: .1em; }
+  .editorial-wall__title-row h1 { margin: 0; color: var(--wall-ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(21px, 2.2vw, 32px); font-weight: 400; line-height: 1; letter-spacing: .12em; text-align: center; }
+  .editorial-wall__description { max-width: 280px; justify-self: end; text-align: right; }
+  .editorial-wall__chapters { padding-bottom: 80px; }
+  .editorial-wall__chapter { padding: clamp(50px, 6vw, 88px) clamp(20px, 3vw, 48px) clamp(90px, 11vw, 168px); border-bottom: 1px solid #17171438; }
+  .editorial-wall__chapter-label { display: flex; justify-content: space-between; margin-bottom: 28px; font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+  .editorial-wall__chapter-label p { margin: 0; }
+  .editorial-wall__chapter-label span { margin-right: 10px; font-family: Georgia, 'Times New Roman', serif; font-size: 12px; font-weight: 400; letter-spacing: .04em; }
+  .editorial-wall__mosaic { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(10, clamp(25px, 2.65vw, 34px)); min-height: 300px; isolation: isolate; }
+  .editorial-wall__photo { position: relative; display: block; min-width: 0; padding: 0; overflow: hidden; border: 0; border-radius: 0; background: #8d877f; cursor: zoom-in; transition: filter .25s ease, opacity .25s ease, transform .45s cubic-bezier(.2,.7,.2,1); }
+  .editorial-wall__photo:nth-child(1) { grid-area: 3 / 1 / 8 / 4; z-index: 1; }
+  .editorial-wall__photo:nth-child(2) { grid-area: 1 / 3 / 6 / 6; z-index: 2; }
+  .editorial-wall__photo:nth-child(3) { grid-area: 3 / 5 / 10 / 9; z-index: 4; }
+  .editorial-wall__photo:nth-child(4) { grid-area: 2 / 8 / 7 / 11; z-index: 3; }
+  .editorial-wall__photo:nth-child(5) { grid-area: 4 / 10 / 10 / 13; z-index: 5; }
+  .editorial-wall__photo:nth-child(6) { grid-area: 7 / 2 / 11 / 5; z-index: 3; }
+  .editorial-wall__photo:nth-child(7) { grid-area: 7 / 7 / 11 / 10; z-index: 6; }
+  .editorial-wall__photo img { display: block; width: 100%; height: 100%; margin: 0; object-fit: cover; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .editorial-wall__photo > span { position: absolute; right: 7px; bottom: 5px; color: #fff; font-size: 9px; line-height: 1; letter-spacing: .12em; text-shadow: 0 1px 4px #000a; }
+  .editorial-wall__photo:hover, .editorial-wall__photo:focus-visible { z-index: 20; filter: saturate(1.08) contrast(1.03); transform: scale(1.015); }
+  .editorial-wall__photo:hover img { transform: scale(1.035); }
+  .editorial-wall__photo:focus-visible { outline: 2px solid var(--wall-ink); outline-offset: 5px; }
+  .editorial-wall__statement { max-width: 780px; margin: clamp(36px, 4vw, 58px) auto 0; color: var(--wall-ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(26px, 3vw, 42px); font-weight: 400; line-height: 1.12; letter-spacing: -.035em; text-align: center; }
+  .editorial-wall__layout-control { position: sticky; bottom: 20px; z-index: 40; display: flex; align-items: center; width: max-content; margin: -66px auto 22px; padding: 5px; border: 1px solid #17171466; border-radius: 999px; background: #ada59be8; font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; backdrop-filter: blur(12px); }
+  .editorial-wall__layout-control > span:first-child { padding: 0 9px 0 7px; }
+  .editorial-wall__layout-control button { min-width: 54px; padding: 7px 11px; border: 0; border-radius: 999px; color: inherit; background: transparent; font: inherit; cursor: pointer; }
+  .editorial-wall__layout-control button[aria-pressed='true'] { color: var(--wall-paper); background: var(--wall-ink); }
+  .editorial-wall__layout-control button:focus-visible { outline: 2px solid var(--wall-ink); outline-offset: 3px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+  .editorial-wall[data-layout='linear'] .editorial-wall__mosaic { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: auto; gap: clamp(10px, 1.5vw, 24px); min-height: 0; }
+  .editorial-wall[data-layout='linear'] .editorial-wall__photo { grid-area: auto; aspect-ratio: 4 / 5; transform: none; }
+  .editorial-wall[data-layout='linear'] .editorial-wall__photo:nth-child(3n + 2) { aspect-ratio: 1 / 1; }
+  .editorial-wall[data-layout='linear'] .editorial-wall__photo:nth-child(3n) { aspect-ratio: 4 / 3; }
+
+  @media (max-width: 760px) {
+    .editorial-wall__nav { grid-template-columns: 1fr auto; row-gap: 12px; }
+    .editorial-wall__wordmark { grid-column: 2; grid-row: 1; font-size: 15px; letter-spacing: .18em; }
+    .editorial-wall__meta { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; }
+    .editorial-wall__meta span:first-child { display: none; }
+    .editorial-wall__title-row { display: block; min-height: 0; padding: 54px 0 24px; }
+    .editorial-wall__title-row h1 { margin: 24px 0 30px; font-size: 28px; letter-spacing: .08em; text-align: left; }
+    .editorial-wall__description { max-width: 330px; margin-left: auto !important; text-align: right; }
+    .editorial-wall__chapter { padding-top: 72px; }
+    .editorial-wall__mosaic,
+    .editorial-wall[data-layout='linear'] .editorial-wall__mosaic { display: flex; flex-direction: column; gap: 22px; min-height: 0; }
+    .editorial-wall__photo,
+    .editorial-wall[data-layout='linear'] .editorial-wall__photo { width: 82%; aspect-ratio: 4 / 5; }
+    .editorial-wall__photo:nth-child(even),
+    .editorial-wall[data-layout='linear'] .editorial-wall__photo:nth-child(even) { align-self: flex-end; }
+    .editorial-wall__photo:nth-child(3n),
+    .editorial-wall[data-layout='linear'] .editorial-wall__photo:nth-child(3n) { width: 100%; aspect-ratio: 4 / 3; }
+    .editorial-wall__statement { margin-top: 70px; font-size: clamp(30px, 9vw, 43px); }
+    .editorial-wall[data-layout='linear'] .editorial-wall__photo { width: 100%; aspect-ratio: 4 / 5; }
+  }
+  @media (prefers-reduced-motion: reduce) { .editorial-wall__photo, .editorial-wall__photo img { transition: none; } }
+</style>

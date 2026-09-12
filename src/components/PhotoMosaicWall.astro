@@ -1,0 +1,178 @@
+---
+import PhotoViewer from './PhotoViewer.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { album: CollectionEntry<'photoAlbums'>['data']; }
+const { album } = Astro.props;
+const { images, title, description, transition } = album;
+---
+
+<section class='photo-presentation mosaic-wall' aria-label={`${title}照片墙`}>
+  <div class='mosaic-wall__grid'>
+    {images.map((photo, index) => (
+      <Fragment>
+        {index === 3 && (
+          <article class='mosaic-wall__title-card' style='grid-column: 3; grid-row: 3 / span 3;'>
+            <p class='mosaic-wall__kicker'>HEALTH VISUAL ARCHIVE · 01</p>
+            <h1><span>健康</span><span>图鉴</span></h1>
+            <p class='mosaic-wall__description'>{description}</p>
+            <nav class='mosaic-wall__nav' aria-label='相册导航'>
+              <a href='/photos/'>返回照片</a>
+              <button type='button' data-photo-open='0' aria-haspopup='dialog'>开始浏览</button>
+              <span>{String(images.length).padStart(2, '0')} 张</span>
+            </nav>
+          </article>
+        )}
+        <button
+          type='button'
+          class:list={[
+            'mosaic-wall__photo',
+            { 'mosaic-wall__photo--tall': index > 9 && index % 11 === 5 },
+            { 'mosaic-wall__photo--wide': index > 9 && index % 13 === 8 },
+          ]}
+          data-photo-open={index}
+          aria-label={`查看第 ${index + 1} 张：${photo.alt}`}
+          aria-haspopup='dialog'
+        >
+          <img
+            src={photo.src}
+            alt={photo.alt}
+            width={photo.width}
+            height={photo.height}
+            loading={index < 12 ? 'eager' : 'lazy'}
+            decoding='async'
+          />
+        </button>
+      </Fragment>
+    ))}
+  </div>
+
+  <PhotoViewer {images} {title} {transition} />
+</section>
+
+<style>
+  .mosaic-wall {
+    --mosaic-black: #000;
+    --mosaic-paper: #fff;
+    --mosaic-blush: #e8c4c0;
+    min-height: 100dvh;
+    margin: 0;
+    color: var(--mosaic-black);
+    background: var(--mosaic-paper);
+  }
+  .mosaic-wall__grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    grid-auto-rows: clamp(72px, 7.5vw, 112px);
+    gap: clamp(4px, .65vw, 10px);
+    min-height: 100dvh;
+  }
+  .mosaic-wall__photo {
+    display: block;
+    grid-row: span 2;
+    min-width: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: #393939;
+    cursor: zoom-in;
+  }
+  .mosaic-wall__photo--tall { grid-row: span 3; }
+  .mosaic-wall__photo--wide { grid-column: span 2; }
+  .mosaic-wall__photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    object-position: center top;
+    transition: filter .25s ease, transform .45s cubic-bezier(.2, .7, .2, 1);
+  }
+  .mosaic-wall__photo:hover img { filter: saturate(1.08) contrast(1.04); transform: scale(1.025); }
+  .mosaic-wall__photo:focus-visible { position: relative; z-index: 10; outline: 3px solid var(--mosaic-paper); outline-offset: -5px; }
+  .mosaic-wall__title-card {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    padding: clamp(20px, 2.35vw, 38px);
+    overflow: hidden;
+    border-radius: 0;
+    background: var(--mosaic-blush);
+  }
+  .mosaic-wall__kicker {
+    margin: 0;
+    font-family: var(--font-jost), Arial, sans-serif;
+    font-size: clamp(7px, .72vw, 11px);
+    line-height: 1.1;
+    letter-spacing: -.02em;
+  }
+  .mosaic-wall__title-card h1 {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0 18px;
+    color: var(--mosaic-black);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(50px, 7.8vw, 122px);
+    font-style: italic;
+    font-weight: 300;
+    line-height: .76;
+    letter-spacing: -.075em;
+  }
+  .mosaic-wall__description {
+    max-width: 27ch;
+    margin: 0 0 clamp(34px, 4vw, 58px);
+    color: #393939;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(9px, .9vw, 14px);
+    line-height: 1.15;
+  }
+  .mosaic-wall__nav {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .mosaic-wall__nav a,
+  .mosaic-wall__nav button,
+  .mosaic-wall__nav span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 4px 11px;
+    border: 0;
+    border-radius: 9999px;
+    color: var(--mosaic-black);
+    background: var(--mosaic-paper);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(8px, .78vw, 12px);
+    line-height: 1;
+    white-space: nowrap;
+  }
+  .mosaic-wall__nav button { cursor: pointer; }
+  .mosaic-wall__nav a:hover,
+  .mosaic-wall__nav button:hover { color: var(--mosaic-paper); background: var(--mosaic-black); }
+  .mosaic-wall__nav a:focus-visible,
+  .mosaic-wall__nav button:focus-visible { outline: 2px solid var(--mosaic-black); outline-offset: 2px; }
+
+  @media (max-width: 760px) {
+    .mosaic-wall__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 34vw; }
+    .mosaic-wall__title-card { grid-column: 1 / -1 !important; grid-row: span 2 !important; padding: 24px; }
+    .mosaic-wall__title-card h1 { margin-top: auto; font-size: clamp(74px, 24vw, 104px); }
+    .mosaic-wall__description { max-width: 31ch; margin-bottom: 44px; font-size: 12px; }
+    .mosaic-wall__photo--wide { grid-column: span 2; }
+    .mosaic-wall__nav { right: 16px; bottom: 16px; left: 16px; }
+    .mosaic-wall__nav a,
+    .mosaic-wall__nav button,
+    .mosaic-wall__nav span { min-height: 28px; padding: 6px 12px; font-size: 10px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .mosaic-wall__photo img { transition: none; } }
+</style>

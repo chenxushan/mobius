@@ -323,17 +323,19 @@ src/content/photos/hangzhou-autumn.md
 
 文件名建议只使用小写英文字母、数字和连字符。
 
-相册支持五种展示形式：
+相册支持七种展示形式：
 
 - `presentation: grid`：传统网格和灯箱浏览，也是默认形式。
 - `presentation: flipbook`：纸质书风格的交互式翻页相册。
 - `presentation: wall`：带白色相纸边框的错落照片墙，照片倾斜、重叠，点击居中聚焦。
+- `presentation: editorial-wall`：暖灰纸张上的编辑部风格照片墙，支持随机叠放与线性排列切换。
+- `presentation: mosaic-wall`：满屏紧密拼贴照片墙，以中央衬线标题卡和胶囊导航作为视觉中心。
 - `presentation: slideshow`：单张照片浏览，可切换六种过渡效果，支持缩略图、方向键和左右轻扫。
 - `presentation: gallery`：按图片宽高比自适应排列的等高画廊，点击打开全屏灯箱。
 
 #### 新增照片墙、照片浏览或画廊
 
-复制 `src/content/photos/gugong-wall.md`、`gugong-slideshow.md` 或 `gugong-gallery.md`，更改文件名、相册信息和 `images` 即可。三个示例分别使用 19、10、11 张故宫照片。
+复制 `src/content/photos/gugong-wall.md`、`suzhou-museum-west.md`、`gugong-slideshow.md` 或 `gugong-gallery.md`，更改文件名、相册信息和 `images` 即可。其中 `suzhou-museum-west.md` 是编辑部风格照片墙示例。
 
 ```yaml
 ---
@@ -341,7 +343,7 @@ title: 故宫光影
 description: 红墙与屋檐之间的片刻。
 location: 中国・北京
 date: 2026-09
-presentation: slideshow # 可选 wall、slideshow、gallery
+presentation: slideshow # 可选 wall、editorial-wall、mosaic-wall、slideshow、gallery
 transition: horizontal-slide # slideshow 的默认切换效果
 cover: /images/albums/gugong/slideshow-01.webp
 images:
@@ -367,7 +369,7 @@ images:
 
 浏览器支持左右方向键、Home / End、缩略图跳转和左右轻扫。纵向滑动也支持上下方向键；横向卷轴支持触屏及触控板自由滚动。灯箱按 Esc 关闭并将焦点还给原照片。系统开启“减少动态效果”时关闭过渡动画。照片为空时显示空状态，只有一张照片时禁用前后按钮。
 
-示例入口：`/photos/gugong-wall/`、`/photos/gugong-slideshow/`、`/photos/gugong-gallery/`。示例中的 `date` 是整理月份，可改成实际拍摄日期。三个示例相册的照片 `src` 直接使用提供的原始 HTTP 外链；本地照片副本与地址对照表保存在 `public/images/albums/gugong/`，封面继续使用本地图片。
+示例入口：`/photos/gugong-wall/`、`/photos/suzhou-museum-west/`、`/photos/gugong-slideshow/`、`/photos/gugong-gallery/`。示例中的 `date` 是整理月份，可改成实际拍摄日期。苏州博物馆西馆示例通过 HTTPS 外链直接读取照片，并由七牛实时输出浏览器兼容的 WebP，不保存本地副本。
 
 布局与效果参考：[照片墙](https://chenxushan.github.io/)、[PhotoFolio 切换效果](https://photofolio.zendesk.com/hc/en-us/articles/34881804447899-Transition-Type-Image-an-Video-Settings)、[Astro Photo Grid](https://github.com/kydecker/astro-photo-grid)。本项目使用原生 CSS、Web Animations 和 dialog 实现。
 
@@ -423,7 +425,7 @@ draft: false
 - `description`：显示在相册列表和详情页的简介。
 - `location`：拍摄地点，也会显示在书籍封面信息中。
 - `date`：拍摄或整理日期。
-- `presentation`：设置为 `flipbook` 启用翻页效果；也支持 `wall`、`slideshow`、`gallery`；设置为 `grid` 或省略时使用传统网格相册。
+- `presentation`：设置为 `flipbook` 启用翻页效果；也支持 `wall`、`editorial-wall`、`mosaic-wall`、`slideshow`、`gallery`；设置为 `grid` 或省略时使用传统网格相册。
 - `cover`：照片列表页的相册缩略图，不是翻页相册内部书封的背景图片。
 - `images`：照片数组，排列顺序就是翻页顺序。
 - `src`：远程图片 URL。
