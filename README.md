@@ -323,10 +323,11 @@ src/content/photos/hangzhou-autumn.md
 
 文件名建议只使用小写英文字母、数字和连字符。
 
-相册支持七种展示形式：
+相册支持八种展示形式：
 
 - `presentation: grid`：传统网格和灯箱浏览，也是默认形式。
 - `presentation: flipbook`：纸质书风格的交互式翻页相册。
+- `presentation: flipbook-3d`：沉浸式横向立体相册，带可见页层、透视翻页、触控与键盘导航。
 - `presentation: wall`：带白色相纸边框的错落照片墙，照片倾斜、重叠，点击居中聚焦。
 - `presentation: editorial-wall`：暖灰纸张上的编辑部风格照片墙，支持随机叠放与线性排列切换。
 - `presentation: mosaic-wall`：满屏紧密拼贴照片墙，以中央衬线标题卡和胶囊导航作为视觉中心。
@@ -343,18 +344,19 @@ title: 故宫光影
 description: 红墙与屋檐之间的片刻。
 location: 中国・北京
 date: 2026-09
-presentation: slideshow # 可选 wall、editorial-wall、mosaic-wall、slideshow、gallery
+presentation: slideshow # 可选 flipbook、flipbook-3d、wall、editorial-wall、mosaic-wall、slideshow、gallery
 transition: horizontal-slide # slideshow 的默认切换效果
 cover: /images/albums/gugong/slideshow-01.webp
 images:
   - src: /images/albums/gugong/slideshow-01.webp
     alt: 故宫影像
+    description: 午后的光落在红墙与琉璃瓦之间。
     width: 1440
     height: 2558
 ---
 ```
 
-`width`、`height` 为可选的图片实际尺寸；建议填写，让画廊在图片加载前就按正确比例排布。不填写时画廊按 3:4 排列，大图浏览仍完整显示原图。省略 `presentation` 时继续使用 `grid`。
+`description` 是可选的单张照片说明，在翻页相册的对应内页底部显示；省略时页面只显示照片。`width`、`height` 也是可选的图片实际尺寸；建议填写，让画廊在图片加载前就按正确比例排布。不填写时画廊按 3:4 排列，大图浏览仍完整显示原图。省略 `presentation` 时继续使用 `grid`。
 
 `transition` 支持以下值，仅用于 `slideshow` 的初始效果；访客可在页面右上角即时切换：
 
@@ -369,7 +371,7 @@ images:
 
 浏览器支持左右方向键、Home / End、缩略图跳转和左右轻扫。纵向滑动也支持上下方向键；横向卷轴支持触屏及触控板自由滚动。灯箱按 Esc 关闭并将焦点还给原照片。系统开启“减少动态效果”时关闭过渡动画。照片为空时显示空状态，只有一张照片时禁用前后按钮。
 
-示例入口：`/photos/gugong-wall/`、`/photos/suzhou-museum-west/`、`/photos/gugong-slideshow/`、`/photos/gugong-gallery/`。示例中的 `date` 是整理月份，可改成实际拍摄日期。苏州博物馆西馆示例通过 HTTPS 外链直接读取照片，并由七牛实时输出浏览器兼容的 WebP，不保存本地副本。
+示例入口：`/photos/chuanxi-trip/`、`/photos/gugong-wall/`、`/photos/suzhou-museum-west/`、`/photos/gugong-slideshow/`、`/photos/gugong-gallery/`。川西之旅使用 `flipbook-3d`，所有照片通过 HTTPS 外链读取，并由七牛实时输出浏览器兼容的 WebP，不保存本地副本。示例中的 `date` 是整理月份，可改成实际拍摄日期。
 
 布局与效果参考：[照片墙](https://chenxushan.github.io/)、[PhotoFolio 切换效果](https://photofolio.zendesk.com/hc/en-us/articles/34881804447899-Transition-Type-Image-an-Video-Settings)、[Astro Photo Grid](https://github.com/kydecker/astro-photo-grid)。本项目使用原生 CSS、Web Animations 和 dialog 实现。
 
@@ -405,6 +407,7 @@ theme:
 images:
   - src: "https://你的图片地址/01.jpg"
     alt: 西湖清晨的薄雾
+    description: 湖面还没有完全醒来，远山藏在一层薄雾里。
 
   - src: "https://你的图片地址/02.jpg"
     alt: 秋日梧桐树下的街道
@@ -425,11 +428,12 @@ draft: false
 - `description`：显示在相册列表和详情页的简介。
 - `location`：拍摄地点，也会显示在书籍封面信息中。
 - `date`：拍摄或整理日期。
-- `presentation`：设置为 `flipbook` 启用翻页效果；也支持 `wall`、`editorial-wall`、`mosaic-wall`、`slideshow`、`gallery`；设置为 `grid` 或省略时使用传统网格相册。
+- `presentation`：设置为 `flipbook` 启用纸质书翻页效果，设置为 `flipbook-3d` 启用沉浸式横向立体相册；也支持 `wall`、`editorial-wall`、`mosaic-wall`、`slideshow`、`gallery`；设置为 `grid` 或省略时使用传统网格相册。
 - `cover`：照片列表页的相册缩略图，不是翻页相册内部书封的背景图片。
 - `images`：照片数组，排列顺序就是翻页顺序。
 - `src`：远程图片 URL。
 - `alt`：图片内容说明，用于无障碍访问和图片无法加载时的替代文字。
+- `description`：可选的照片正文说明；在 `flipbook` 和 `flipbook-3d` 内页底部显示，省略时不占空间。
 - `draft`：`false` 表示公开；`true` 表示暂时隐藏。
 
 #### 独立定制相册颜色

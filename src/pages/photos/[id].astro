@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PhotoFlipbook from '../../components/PhotoFlipbook.astro';
+import Photo3DFlipbook from '../../components/Photo3DFlipbook.astro';
 import PhotoEditorialWall from '../../components/PhotoEditorialWall.astro';
 import PhotoMosaicWall from '../../components/PhotoMosaicWall.astro';
 import PhotoPresentation from '../../components/PhotoPresentation.astro';
@@ -16,7 +17,7 @@ export async function getStaticPaths() {
 
 const { album } = Astro.props;
 const presentation = album.data.presentation;
-const immersive = presentation === 'editorial-wall' || presentation === 'mosaic-wall';
+const immersive = presentation === 'editorial-wall' || presentation === 'mosaic-wall' || presentation === 'flipbook-3d';
 const lang = Astro.currentLocale || 'en';
 const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
 ---
@@ -26,6 +27,8 @@ const backLabel = lang === 'zh' ? '返回照片' : 'Back to Photos';
     <PhotoEditorialWall album={album.data} />
   ) : presentation === 'mosaic-wall' ? (
     <PhotoMosaicWall album={album.data} />
+  ) : presentation === 'flipbook-3d' ? (
+    <Photo3DFlipbook album={album.data} />
   ) : (
   <div class='container animate'>
     <div class='album-detail'>

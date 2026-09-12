@@ -62,6 +62,24 @@ function afterVisibleLayout(root: HTMLElement): Promise<void> {
   });
 }
 
+async function waitForInitialPageImages(root: HTMLElement): Promise<void> {
+  const images = Array.from(root.querySelectorAll<HTMLImageElement>('.book-photo img')).slice(0, 2);
+
+  await Promise.all(images.map(async (image) => {
+    if (!image.complete) {
+      await Promise.race([
+        new Promise<void>((resolve) => {
+          image.addEventListener('load', () => resolve(), { once: true });
+          image.addEventListener('error', () => resolve(), { once: true });
+        }),
+        new Promise<void>((resolve) => window.setTimeout(resolve, 5000)),
+      ]);
+    }
+
+    if (image.naturalWidth > 0) await image.decode().catch(() => undefined);
+  }));
+}
+
 async function initializePhotoFlipbooks() {
   try {
     await loadPageFlipRuntime();
@@ -70,13 +88,15 @@ async function initializePhotoFlipbooks() {
     return;
   }
 
-  const roots = document.querySelectorAll<HTMLElement>('.photo-flipbook:not([data-ready]):not([data-initializing])');
+  const roots = document.querySelectorAll<HTMLElement>(
+    '.photo-flipbook:not([data-initialized]):not([data-initializing]), .photo-flipbook-3d:not([data-initialized]):not([data-initializing])',
+  );
 
   await Promise.all(Array.from(roots, async (root) => {
     root.dataset.initializing = 'true';
     await afterVisibleLayout(root);
 
-    if (!root.isConnected || root.dataset.ready === 'true') {
+    if (!root.isConnected || root.dataset.initialized === 'true') {
       delete root.dataset.initializing;
       return;
     }
@@ -126,6 +146,11 @@ async function initializePhotoFlipbooks() {
       const lastPage = pageCount - 1;
       previousButton.disabled = currentPage === 0 || isTurning;
       nextButton.disabled = currentPage === lastPage || isTurning;
+      root.dataset.pagePosition = currentPage === 0
+        ? 'cover'
+        : currentPage === lastPage
+          ? 'back'
+          : 'interior';
 
       if (currentPage === 0) pageStatus.textContent = '封面';
       else if (currentPage === lastPage) pageStatus.textContent = '封底';
@@ -138,7 +163,9 @@ async function initializePhotoFlipbooks() {
     });
 
     pageFlip.on('changeState', (event) => {
-      isTurning = event.data !== 'read';
+      // Hovering a page corner reports `fold_corner`; it must stay interactive so
+      // controls and keyboard navigation still work after entering from a card.
+      isTurning = event.data === 'flipping';
       updateControls();
     });
 
@@ -146,10 +173,18 @@ async function initializePhotoFlipbooks() {
       orientationStatus.textContent = orientation === 'portrait' ? '单页浏览' : '双页展开';
     };
 
-    pageFlip.on('init', (event) => updateOrientation(event.data.mode));
+    pageFlip.on('init', (event) => {
+      updateOrientation(event.data.mode);
+      const startPage = Number(root.dataset.startPage) || 0;
+      if (startPage > 0) {
+        currentPage = Math.min(startPage, pageFlip.getPageCount() - 1);
+        pageFlip.turnToPage(currentPage);
+      }
+      updateControls();
+    });
     pageFlip.on('changeOrientation', (event) => updateOrientation(event.data));
     pageFlip.loadFromHTML(pages);
-    root.dataset.ready = 'true';
+    root.dataset.initialized = 'true';
     delete root.dataset.initializing;
     updateControls();
 
@@ -190,6 +225,12 @@ async function initializePhotoFlipbooks() {
     document.addEventListener('astro:before-swap', () => {
       window.removeEventListener('keydown', handleKeyboardNavigation);
     }, { once: true });
+
+    // Keep the cover preview visible while the first spread decodes, but do not
+    // block the renderer, buttons, or keyboard on remote image latency.
+    void waitForInitialPageImages(root).then(() => {
+      if (root.isConnected) root.dataset.ready = 'true';
+    });
   }));
 }
 

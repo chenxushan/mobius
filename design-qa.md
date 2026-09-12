@@ -48,6 +48,67 @@ No actionable P0, P1, or P2 mismatch remains.
 
 final result: passed
 
+# 3D flipbook design QA
+
+- Source visual truth: `/Users/chenxushan/Downloads/3D立体相册翻阅.MP4`
+- Source inspection: contact sheet sampled every two seconds across the `20.57s` video; a representative open-book frame at `00:04` was normalized for comparison
+- Implementation: `http://127.0.0.1:4324/photos/chuanxi-trip/`
+- Implementation screenshot: Codex in-app browser inline captures; this browser surface did not expose a filesystem path
+- Desktop viewport: `1280 × 720` CSS px, device scale factor 1
+- Mobile viewport: `390 × 844` CSS px, device scale factor 1
+- Normalized comparison viewport: source and implementation were rendered at `1280 × 800` and shown together at equal scale in one browser capture
+- State: first open spread, 50 remote photographs, desktop double-page mode and mobile single-page mode
+
+## Full-view comparison evidence
+
+The reference video and the implementation were displayed together in one comparison view. Both use a full-screen muted navy stage, a small centered travel title, a large horizontal photo book, visible layers of pages extending from both edges, a shaded center spine, and compact circular controls beneath the book. The implementation keeps the source's quiet presentation while replacing its Jiuzhaigou scrapbook content with the supplied Western Sichuan photographs.
+
+## Focused region comparison evidence
+
+The open spread, page layers, header, and controls were compared at equal scale. The implementation preserves the reference's broad spread proportions and centered stage. A separate `390 × 844` capture confirmed that the renderer changes to a single complete page, hides the decorative depth stack, keeps the title and controls visible, and avoids horizontal overflow.
+
+## Required fidelity surfaces
+
+- Fonts and typography: a light Song/Georgia serif stack gives the Chinese title the restrained travel-journal character of the reference; compact metadata and page status remain legible.
+- Spacing and layout rhythm: the desktop book fills the visual center with deliberate space around it, while the mobile page fits between the header and controls without clipping.
+- Colors and visual tokens: the navy `#343a58` stage, warm ivory pages, muted metadata, and light circular controls closely follow the reference video.
+- Image quality and asset fidelity: all 50 supplied URLs are present once and in the supplied order. Qiniu WebP transforms keep the HEIC/PNG sources browser-compatible while remaining remote references; every visible test image loaded at `1800px` width.
+- Depth and material: ten real album images form the visible page stack behind the interactive book. Curved page silhouettes, stronger perspective, deeper shadows, center spine shading, hard covers, and soft interior leaves create the 3D volume without generated art.
+- Copy and content: title, location, date, image count, accessible page labels, orientation state, and control labels are complete.
+
+## Findings
+
+No actionable P0, P1, or P2 mismatch remains.
+
+## Comparison history
+
+- Pass 1: the first functional build matched the reference's main composition, but the bottom navigation was too dark against the navy stage.
+- Fix 1: changed the previous and next controls to compact white circles with dark chevrons, matching the reference's visible control treatment.
+- Regression pass: repeated the equal-scale comparison after the control change, then verified the independent mobile state and the immersive route reached from the photos index.
+- Depth pass: the user's focused screenshot showed that the first build still read as a flat rectangle with narrow page edges.
+- Depth fix: reshaped the two active leaves around the center spine, expanded the background stack from six to ten real-image leaves, increased fan angle and Z spacing, strengthened the book shadow, and delayed renderer initialization until the first spread images decode. A final side-by-side capture confirmed the deeper page fan and visible open-book profile without a blank first spread.
+- Interaction regression: entering from the photos index left the pointer over a page corner, and the renderer's `fold_corner` hover state was incorrectly treated as an active page turn. That disabled the buttons and blocked keyboard navigation. The interaction lock now applies only during the actual `flipping` state.
+- Startup regression: renderer creation and event binding were also waiting for the first remote spread to decode, leaving a multi-second interval where visible controls could not respond. Initialization now happens before image decoding; the cover preview remains visible until the first spread is ready while controls and keyboard navigation are already active.
+- Client-navigation fallback: direct visits were consistently interactive while the Astro-swapped detail could still retain inconsistent renderer state in a user browser. The `flipbook-3d` card now opts into a normal document navigation, so entering from the index follows the same verified initialization path as a direct detail visit.
+- Caption pass: added an optional per-image `description` field. Described pages reserve a paper strip at the bottom and keep the text inside the leaf boundary; undescribed pages retain the full-height image layout with no empty caption space.
+- End-state pass: the decorative depth stack remained visible on both sides when the book reached its covers. The renderer now marks cover, interior, and back positions; the left stack hides at the front cover and the right stack hides at the back cover.
+
+## Primary interactions tested
+
+- Opened `/photos/chuanxi-trip/` from the photos index and confirmed that the standard site header and footer are removed for the immersive presentation.
+- Confirmed desktop double-page and mobile single-page renderer modes.
+- Entered the album from `/photos/` through its full-navigation card, then used the next button and horizontal arrow keys; controls enabled and advanced from `01 / 50` to `03 / 50`, while combined button and keyboard testing advanced to `05 / 50`.
+- Confirmed all 50 page elements are present, visible test images load successfully, and neither breakpoint introduces horizontal overflow.
+- Confirmed the first spread renders two descriptions inside the paper area and the following undescribed spread returns both images to full height.
+- Used Home and End to inspect both closed-book states and confirmed the empty side no longer shows decorative pages.
+- Checked the browser console after navigation and interaction: no warnings or errors.
+
+## Follow-up polish
+
+- P3: the reference uses predesigned scrapbook spreads, while this version intentionally keeps each supplied photograph intact on its own leaf as requested.
+
+final result: passed
+
 # Mosaic photo wall design QA
 
 - Source visual truth: `https://www.nrly.co/` and `https://styles.refero.design/style/1c516bc6-278b-4cf6-bfe8-c5a39118e730`
