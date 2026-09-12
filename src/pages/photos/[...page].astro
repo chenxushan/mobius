@@ -36,6 +36,7 @@ const albumCount = page.total;
                 href={`/photos/${album.id}/`}
                 class='album-card__link'
                 aria-label={`打开相册：${album.data.title}`}
+                data-astro-reload={album.data.presentation === 'flipbook-3d' ? '' : undefined}
               >
                 <div class='album-card__stage'>
                   <div class='album-card__cover'>

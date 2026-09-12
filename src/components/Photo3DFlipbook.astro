@@ -1,0 +1,433 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { album: CollectionEntry<'photoAlbums'>['data']; }
+
+const { album } = Astro.props;
+const { images, title, location, date, theme } = album;
+const totalLeaves = images.length + 2;
+const defaultTheme = { paper: '#f4f0e7', cover: '#c7a23c', ink: '#25293b', muted: '#c9ccdc' };
+const isHexColor = (value?: string) => Boolean(value && /^#(?:[\da-fA-F]{3}|[\da-fA-F]{4}|[\da-fA-F]{6}|[\da-fA-F]{8})$/.test(value));
+const resolvedTheme = {
+  paper: isHexColor(theme?.paper) ? theme!.paper : defaultTheme.paper,
+  cover: isHexColor(theme?.cover) ? theme!.cover : defaultTheme.cover,
+  ink: isHexColor(theme?.ink) ? theme!.ink : defaultTheme.ink,
+  muted: isHexColor(theme?.muted) ? theme!.muted : defaultTheme.muted,
+};
+const themeStyle = [
+  `--book-3d-paper: ${resolvedTheme.paper}`,
+  `--book-3d-cover: ${resolvedTheme.cover}`,
+  `--book-3d-ink: ${resolvedTheme.ink}`,
+  `--book-3d-muted: ${resolvedTheme.muted}`,
+].join('; ');
+const leftDepthImages = [images[8], images[16], images[24], images[32]].filter(Boolean);
+const rightDepthImages = [images[12], images[19], images[26], images[33], images[40], images[47]].filter(Boolean);
+const depthPages = [
+  ...leftDepthImages.map((image, index) => ({ image, side: 'is-left', depth: index + 1 })),
+  ...rightDepthImages.map((image, index) => ({ image, side: 'is-right', depth: index + 1 })),
+];
+---
+
+<section
+  class='photo-flipbook-3d'
+  aria-label={`${title} 3D 翻页相册`}
+  tabindex='0'
+  data-start-page='1'
+  style={themeStyle}
+>
+  <header class='photo-flipbook-3d__header'>
+    <a class='photo-flipbook-3d__back' href='/photos/' aria-label='返回照片列表'>
+      <Icon name='fa7-solid:chevron-left' size='13' />
+    </a>
+    <div>
+      <h1>{title}</h1>
+      <p>{location} · {date}</p>
+    </div>
+    <span class='photo-flipbook__orientation'>双页展开</span>
+  </header>
+
+  <div class='photo-flipbook-3d__stage'>
+    <div class='photo-flipbook-3d__rig'>
+      <div class='photo-flipbook-3d__depth' aria-hidden='true'>
+        {depthPages.map(({ image, side, depth }) => (
+          <div
+            class:list={['photo-flipbook-3d__depth-page', side]}
+            style={`--depth: ${depth}`}
+          >
+            <img src={image.src} alt='' loading='eager' />
+          </div>
+        ))}
+      </div>
+
+      <div class='photo-flipbook-3d__preview book-cover' aria-hidden='true'>
+        <p>WESTERN SICHUAN</p>
+        <h2>{title}</h2>
+        <span>{images.length} PHOTOGRAPHS</span>
+      </div>
+
+      <div class='photo-flipbook__book' data-page-width='430' data-page-height='520'>
+        <article class='book-page book-cover' data-density='hard' aria-label='封面'>
+          <p>WESTERN SICHUAN</p>
+          <h2>{title}</h2>
+          <span>{location} · {date}</span>
+        </article>
+
+        {images.map((image, index) => (
+          <article
+            class:list={['book-page', 'book-photo', image.description && 'has-description']}
+            aria-label={`${index + 1}：${image.alt}`}
+          >
+            <img src={image.src} alt={image.alt} loading={index < 4 ? 'eager' : 'lazy'} decoding='async' />
+            {image.description && <p class='book-photo__description'>{image.description}</p>}
+          </article>
+        ))}
+
+        <article class='book-page book-back-cover' data-density='hard' aria-label='封底'>
+          <span>MÖBIUS · {title}</span>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <footer class='photo-flipbook-3d__controls' aria-label='相册控制'>
+    <button class='photo-flipbook__previous' type='button' aria-label='上一页' disabled>
+      <Icon name='fa7-solid:chevron-left' size='13' />
+    </button>
+    <div class='photo-flipbook__status' aria-live='polite'>
+      <span class='photo-flipbook__page-status'>01 / {String(images.length).padStart(2, '0')}</span>
+      <small>拖动页角、轻扫或使用方向键</small>
+    </div>
+    <button class='photo-flipbook__next' type='button' aria-label='下一页' disabled>
+      <Icon name='fa7-solid:chevron-right' size='13' />
+    </button>
+  </footer>
+
+  <p class='photo-flipbook-3d__count'>{images.length} 幅影像 · {totalLeaves} 页</p>
+</section>
+
+<script>
+  import '../scripts/photo-flipbook';
+</script>
+
+<style is:global>
+  .photo-flipbook-3d {
+    --book-3d-paper: #f4f0e7;
+    --book-3d-cover: #c7a23c;
+    --book-3d-ink: #25293b;
+    --book-3d-muted: #c9ccdc;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    min-height: 100dvh;
+    margin: 0;
+    overflow: hidden;
+    color: #fff;
+    background: #343a58;
+    outline: none;
+  }
+
+  .photo-flipbook-3d__header {
+    display: grid;
+    grid-template-columns: 44px 1fr 120px;
+    gap: 18px;
+    align-items: center;
+    width: min(100% - 40px, 1220px);
+    margin: 0 auto;
+    padding: 22px 0 10px;
+    text-align: center;
+  }
+
+  .photo-flipbook-3d__header h1 {
+    margin: 0;
+    color: #fff;
+    font-family: Georgia, 'Songti SC', 'STSong', serif;
+    font-size: clamp(20px, 2vw, 30px);
+    font-weight: 400;
+    letter-spacing: .08em;
+  }
+
+  .photo-flipbook-3d__header p,
+  .photo-flipbook-3d__header > span,
+  .photo-flipbook-3d__count {
+    margin: 4px 0 0;
+    color: var(--book-3d-muted);
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .photo-flipbook-3d__header > span { margin: 0; text-align: right; }
+
+  .photo-flipbook-3d__back,
+  .photo-flipbook-3d__controls button {
+    display: inline-grid;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1px solid rgb(255 255 255 / 36%);
+    border-radius: 50%;
+    color: #fff;
+    background: rgb(19 23 43 / 34%);
+    cursor: pointer;
+    place-items: center;
+  }
+
+  .photo-flipbook-3d__controls button {
+    border-color: #fff;
+    color: #303650;
+    background: #fff;
+    box-shadow: 0 8px 20px rgb(12 15 33 / 24%);
+  }
+
+  .photo-flipbook-3d__back:hover,
+  .photo-flipbook-3d__controls button:hover:not(:disabled) { color: #111528; background: #e8eaf3; }
+
+  .photo-flipbook-3d__back:focus-visible,
+  .photo-flipbook-3d__controls button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+  .photo-flipbook-3d__stage {
+    position: relative;
+    display: grid;
+    min-height: 0;
+    padding: 8px 18px;
+    perspective: 1450px;
+    place-items: center;
+  }
+
+  .photo-flipbook-3d__rig {
+    position: relative;
+    display: grid;
+    width: min(100%, 1040px);
+    height: min(630px, calc(100dvh - 178px));
+    min-height: 420px;
+    place-items: center;
+    transform: translateY(-5px) rotateX(3.5deg);
+    transform-style: preserve-3d;
+  }
+
+  .photo-flipbook-3d__depth {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    transform-style: preserve-3d;
+  }
+
+  .photo-flipbook-3d__depth-page {
+    --depth: 1;
+    position: absolute;
+    top: 50%;
+    width: min(41vw, 430px);
+    height: min(50vw, 520px);
+    overflow: hidden;
+    border: 5px solid var(--book-3d-paper);
+    border-radius: 18px 5px 5px 18px;
+    background: var(--book-3d-paper);
+    box-shadow: 0 20px 44px rgb(9 12 28 / 36%);
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: opacity 180ms ease;
+  }
+
+  .photo-flipbook-3d[data-page-position='cover'] .photo-flipbook-3d__depth-page.is-left,
+  .photo-flipbook-3d[data-page-position='back'] .photo-flipbook-3d__depth-page.is-right {
+    opacity: 0;
+  }
+
+  .photo-flipbook-3d__depth-page.is-left {
+    right: 50%;
+    clip-path: polygon(0 0, 100% 4.5%, 100% 95.5%, 0 100%);
+    transform: translate3d(calc(var(--depth) * -25px), calc(-50% + var(--depth) * 1.5px), calc(var(--depth) * -22px)) rotateY(calc(var(--depth) * 3.2deg)) rotateZ(calc(var(--depth) * -.16deg));
+    transform-origin: right center;
+  }
+
+  .photo-flipbook-3d__depth-page.is-right {
+    left: 50%;
+    border-radius: 5px 18px 18px 5px;
+    clip-path: polygon(0 4.5%, 100% 0, 100% 100%, 0 95.5%);
+    transform: translate3d(calc(var(--depth) * 25px), calc(-50% + var(--depth) * 1.5px), calc(var(--depth) * -22px)) rotateY(calc(var(--depth) * -3.2deg)) rotateZ(calc(var(--depth) * .16deg));
+    transform-origin: left center;
+  }
+
+  .photo-flipbook-3d__depth-page img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-flipbook-3d .photo-flipbook__book {
+    position: relative;
+    z-index: 4;
+    grid-area: 1 / 1;
+    isolation: isolate;
+    filter: drop-shadow(0 32px 30px rgb(10 13 30 / 46%));
+    transform: translateZ(34px);
+    transform-style: preserve-3d;
+    visibility: hidden;
+  }
+
+  .photo-flipbook-3d[data-ready] .photo-flipbook__book { visibility: visible; }
+
+  .photo-flipbook-3d__preview {
+    box-sizing: border-box;
+    z-index: 3;
+    display: grid;
+    grid-area: 1 / 1;
+    width: min(41vw, 430px);
+    aspect-ratio: 43 / 52;
+    padding: 54px 42px;
+    color: #fff;
+    background: var(--book-3d-cover);
+    box-shadow: 0 28px 28px rgb(10 13 30 / 34%);
+    align-content: end;
+  }
+
+  .photo-flipbook-3d[data-ready] .photo-flipbook-3d__preview { display: none; }
+
+  .photo-flipbook-3d .book-page {
+    position: relative;
+    overflow: hidden;
+    color: var(--book-3d-ink);
+    background: var(--book-3d-paper);
+    border: 1px solid rgb(58 51 44 / 8%);
+    box-shadow: inset 0 0 22px rgb(28 25 21 / 12%);
+  }
+
+  .photo-flipbook-3d .book-page.--left {
+    border-radius: 18px 3px 3px 18px;
+    clip-path: polygon(0 0, 100% 4.5%, 100% 95.5%, 0 100%);
+  }
+
+  .photo-flipbook-3d .book-page.--right {
+    border-radius: 3px 18px 18px 3px;
+    clip-path: polygon(0 4.5%, 100% 0, 100% 100%, 0 95.5%);
+  }
+
+  .photo-flipbook-3d .book-page.--left::before,
+  .photo-flipbook-3d .book-page.--right::before {
+    position: absolute;
+    inset-block: 0;
+    z-index: 3;
+    width: 18px;
+    content: '';
+    pointer-events: none;
+  }
+
+  .photo-flipbook-3d .book-page.--left::before { right: 0; box-shadow: inset -14px 0 18px rgb(23 22 28 / 24%); }
+  .photo-flipbook-3d .book-page.--right::before { left: 0; box-shadow: inset 14px 0 18px rgb(23 22 28 / 24%); }
+
+  .photo-flipbook-3d .book-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: var(--book-3d-paper);
+    object-fit: contain;
+  }
+
+  .photo-flipbook-3d .book-photo.has-description img {
+    box-sizing: border-box;
+    padding-bottom: 68px;
+  }
+
+  .photo-flipbook-3d .book-photo__description {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    display: grid;
+    box-sizing: border-box;
+    min-height: 68px;
+    margin: 0;
+    padding: 12px 22px 14px;
+    border-top: 1px solid rgb(58 51 44 / 10%);
+    color: color-mix(in srgb, var(--book-3d-ink) 78%, transparent);
+    background: var(--book-3d-paper);
+    font-family: Georgia, 'Songti SC', 'STSong', serif;
+    font-size: 11px;
+    letter-spacing: .04em;
+    line-height: 1.55;
+    align-items: center;
+    pointer-events: none;
+  }
+
+  .photo-flipbook-3d .book-cover,
+  .photo-flipbook-3d .book-back-cover {
+    display: grid;
+    padding: clamp(34px, 8%, 58px);
+    color: #fff;
+    background: var(--book-3d-cover);
+    align-content: end;
+  }
+
+  .photo-flipbook-3d .book-cover p,
+  .photo-flipbook-3d__preview p {
+    margin: 0 0 10px;
+    font-size: 9px;
+    letter-spacing: .18em;
+  }
+
+  .photo-flipbook-3d .book-cover h2,
+  .photo-flipbook-3d__preview h2 {
+    margin: 0;
+    color: inherit;
+    font-family: Georgia, 'Songti SC', 'STSong', serif;
+    font-size: clamp(42px, 8cqi, 58px);
+    font-weight: 400;
+    letter-spacing: .05em;
+    line-height: 1.08;
+  }
+
+  .photo-flipbook-3d .book-cover span,
+  .photo-flipbook-3d__preview span,
+  .photo-flipbook-3d .book-back-cover span {
+    margin-top: 18px;
+    font-size: 9px;
+    letter-spacing: .15em;
+  }
+
+  .photo-flipbook-3d .book-back-cover { place-items: center; align-content: center; }
+
+  .photo-flipbook-3d__controls {
+    display: grid;
+    grid-template-columns: 38px minmax(150px, 260px) 38px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 16px 0;
+  }
+
+  .photo-flipbook-3d__controls button { width: 36px; height: 36px; }
+  .photo-flipbook-3d__controls button:disabled { cursor: default; opacity: .3; }
+
+  .photo-flipbook-3d .photo-flipbook__status { display: grid; gap: 2px; text-align: center; }
+  .photo-flipbook-3d .photo-flipbook__status span { color: #fff; font-size: 10px; font-weight: 600; letter-spacing: .14em; }
+  .photo-flipbook-3d .photo-flipbook__status small { color: var(--book-3d-muted); font-size: 9px; }
+  .photo-flipbook-3d__count { margin: 8px 0 14px; text-align: center; }
+
+  @media (max-width: 720px) {
+    .photo-flipbook-3d__header { grid-template-columns: 38px 1fr 64px; width: calc(100% - 24px); padding-top: 14px; }
+    .photo-flipbook-3d__header h1 { font-size: 20px; }
+    .photo-flipbook-3d__header p { letter-spacing: .06em; }
+    .photo-flipbook-3d__header > span { font-size: 8px; letter-spacing: .04em; }
+    .photo-flipbook-3d__stage { padding: 2px 10px; }
+    .photo-flipbook-3d__rig { height: calc(100dvh - 166px); min-height: 430px; transform: none; }
+    .photo-flipbook-3d__depth { display: none; }
+    .photo-flipbook-3d__preview { width: min(82vw, 430px); }
+    .photo-flipbook-3d .photo-flipbook__status small { display: none; }
+    .photo-flipbook-3d__controls { grid-template-columns: 38px minmax(110px, 180px) 38px; }
+    .photo-flipbook-3d__count { margin-bottom: 8px; }
+    .photo-flipbook-3d .photo-flipbook__book { transform: none; }
+    .photo-flipbook-3d .book-page.--left,
+    .photo-flipbook-3d .book-page.--right { border-radius: 8px; clip-path: none; }
+    .photo-flipbook-3d .book-photo.has-description img { padding-bottom: 62px; }
+    .photo-flipbook-3d .book-photo__description { min-height: 62px; padding: 10px 16px 12px; font-size: 10px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .photo-flipbook-3d *,
+    .photo-flipbook-3d *::before,
+    .photo-flipbook-3d *::after { scroll-behavior: auto !important; }
+  }
+</style>
