@@ -204,6 +204,7 @@ navigation: {
     { title: 'Photos', url: '/photos/' },
     { title: 'Videos', url: '/videos/' },
     { title: 'Agentic', url: 'https://agentic.mobius.cool/' },
+    { title: '流金岁月', url: 'https://goldenyears.mobius.cool/' },
   ],
 }
 ```
