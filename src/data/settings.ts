@@ -52,6 +52,7 @@ export const settings = {
       { title: 'Videos', url: '/videos/' },
       { title: 'Agentic', url: 'https://agentic.mobius.cool/' },
       { title: '流金岁月', url: 'https://goldenyears.mobius.cool/' },
+      { title: '书架', url: 'https://bookshelf.mobius.cool/' },
     ],
   },
 
